@@ -1,10 +1,10 @@
 ### 简介
 
-能够运行在 Android aarch64 车机上的 Python 环境，基于 [Termux package](https://packages.termux.dev/) 制作。更多内容见[车联网安全进阶之Trick——Android车机运行Python]()。
+能够运行在 Android aarch64 车机上的 Python 环境，基于 [Termux package](https://packages.termux.dev/) 制作。更多内容见[车联网安全进阶之Trick——Android车机运行Python](https://mp.weixin.qq.com/s/mPA2akY2pYXbbG59NkbAfg)。
 
 ### 使用说明
 
-adb 上传到 /data/local/tmp 目录下，解压后设置环境变量并进入python虚拟环境中。
+adb 上传`pydroid.tar.gz`到 `/data/local/tmp` 目录下，解压后设置环境变量并进入python虚拟环境中。
 
 ```sh
 msmnile_gvmq:/data/local/tmp/pydroid $ export LD_LIBRARY_PATH=/data/local/tmp/pydroid/lib
