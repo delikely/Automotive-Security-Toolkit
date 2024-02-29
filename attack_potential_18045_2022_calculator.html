@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="static/images/vulnerability.png">
+
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap-icons.css">
+
+    <link href="static/css/attack potential calculator.css" rel="stylesheet" />
+
+    <title>Attack potential calculator</title>
+  </head>
+  <body>
+    <div id="sub-content">
+      <!-- <p><img alt="logo" src="" width="50"></p> -->
+      <!-- <h1 id="mainTitle">Attack Potential Calculator</h1> -->
+      <form action="#">
+        <p id="Reference">
+          The determination of the Attack Potential(ISO/IEC 18045,B.6.2) for an attack corresponds to the identification of the effort required
+          to create the attack, and to demonstrate that it can be successfully applied to the TOE (including setting up or
+          building any necessary test equipment), thereby exploiting the vulnerability in the TOE. 
+        </p>
+        <fieldset id="AP_calc">
+          <legend id="baseMetricGroup_Legend" title="The Base Metric group represents the intrinsic  characteristics of a vulnerability that are constant over time and across user environments. Determine the vulnerable component and score Attack Vector, Attack Complexity, Privileges Required and User Interaction relative to this.">Attack potential required to exploit scenario for ISO/IEC 18045:2022</legend>
+          <div class="column column-left">
+            <div class="metric Elapsed_Time">
+              <h3 id="Elapsed_Time_Heading" title="">Elapsed Time</h3>
+              <input name="" value="0" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&lt= one day</label>
+              <input name="" value="1" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&lt= one week</label>
+              <input name="" value="2" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&lt= two weeks</label>
+              <input name="" value="4" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&lt= one month</label>
+              <input name="" value="7" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&lt= two month</label> 
+              <input name="" value="10" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&lt= three months</label>
+              <input name="" value="13" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&lt= four months</label>
+              <input name="" value="15" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&lt= five months</label>
+              <input name="" value="17" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&lt= six months</label>
+              <input name="" value="19" id="" class="Elapsed_Time_input" type="radio">
+              <label for="" id="" title="">&gt six months</label>
+            </div>
+
+            <div class="metric Expertise">
+              <h3 id="Expertise_Heading" title="">Expertise</h3>
+              <input name="" value="0" id="" class="Expertise_input" type="radio">
+              <label for="" id="" title="">Layman</label>
+              <input name="" value="3" id="" class="Expertise_input" type="radio">
+              <label for="" id="" title="">Proficient</label>
+              <input name="" value="6" id="" class="Expertise_input" type="radio">
+              <label for="" id="" title="">Expert</label>
+              <input name="" value="8" id="" class="Expertise_input" type="radio">
+              <label for="" id="" title="">Multiple experts</label>
+            </div>
+          </div>
+
+          <div class="column column-right">
+            <div class="metric Knowledge_of_TOE">
+              <h3 id="Knowledge_of_TOE_Heading" title="">Knowledge of TOE</h3>
+              <input name="" value="0" id="" class="Knowledge_of_TOE_input" type="radio">
+              <label for="" id="" title="">Public</label>
+              <input name="" value="3" id="" class="Knowledge_of_TOE_input" type="radio">
+              <label for="" id="" title="">Restricted</label>
+              <input name="" value="7" id="" class="Knowledge_of_TOE_input" type="radio">
+              <label for="" id="" title="">Sensitive</label>
+              <input name="" value="11" id="" class="Knowledge_of_TOE_input" type="radio">
+              <label for="" id="" title="">Critical</label>
+            </div>
+
+            <div class="metric Window_of_Opportunity">
+              <h3 id="Window_of_Opportunity_Heading" title="">Window of Opportunity</h3>
+              <input name="" value="0" id="" class="Window_of_Opportunity_input" type="radio">
+              <label for="" id="" title="">Unnecessary/unlimited access</label>
+              <input name="" value="1" id="" class="Window_of_Opportunity_input" type="radio">
+              <label for="" id="" title="">Easy</label>
+              <input name="" value="4" id="" class="Window_of_Opportunity_input" type="radio">
+              <label for="" id="" title="">Moderate</label>
+              <input name="" value="10" id="" class="Window_of_Opportunity_input" type="radio">
+              <label for="" id="" title="">Difficult</label>
+              <input name="" value="10" id="" class="Window_of_Opportunity_input" type="radio">
+              <label for="" id="" title="">None</label>
+            </div>
+
+            <div class="metric Equipment">
+              <h3 id="Equipment_Heading" title="">Equipment</h3>
+              <input name="" value="0" id="" class="Equipment_input" type="radio">
+              <label for="" id="" title="">Standard</label>
+              <input name="" value="4" id="" class="Equipment_input" type="radio">
+              <label for="" id="" title="">Specialised</label>
+              <input name="" value="7" id="" class="Equipment_input" type="radio">
+              <label for="" id="" title="">Bespoke</label>
+              <input name="" value="9" id="" class="Equipment_input" type="radio">
+              <label for="" id="" title="">Multiple bespoke</label>
+            </div>
+          </div>
+
+          <div class="scoreRating">
+            <p class="needBaseMetrics">Select values for all base metrics to generate score</p>
+            <span id="baseMetricScore"></span>
+            <span id="baseSeverity"></span>
+          </div>
+
+        </fieldset>
+      </form>
+
+    </div>
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/tools.js"></script>
+    <script src="static/js/attack_potential_18045_2022_calculator.js"></script>
+
+  </body>
+</html>

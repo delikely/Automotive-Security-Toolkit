@@ -1,0 +1,107 @@
+#content {
+  height: auto;
+  overflow: hidden;
+}
+
+.center-div {
+  left: 5% !important;
+}
+
+/* 导航 */
+:root {
+  --ig-separator: 219, 219, 219;
+}
+
+body {
+  font-family: Roboto, serif;
+}
+
+#navigator {
+  width: 15%;
+  height: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+.sidebar {
+  width: 15%;
+  background-color: #ffffff;
+  padding-top: 35px;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  border-right: 1px solid rgb(var(--ig-separator));
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-wrapper {
+  width: 100%;
+  padding: 5px 25px;
+  margin-bottom: 20px;
+}
+
+.logo-wrapper img {
+  width: 105px;
+}
+
+.sidebar-menu {
+  font-size: 1rem;
+  list-style-type: none;
+  padding: 0 12px 20px 8px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 3;
+}
+
+.sidebar-menu.bottom {
+  flex-grow: 0;
+  margin-bottom: 0px;
+}
+
+/* .sidebar-menu li {
+    margin-bottom: 10px;
+  } */
+
+.sidebar-menu li a.nav-link {
+  border-radius: 10px;
+  padding: 16px 15px;
+  color: #333333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-menu li a.nav-link.active {
+  font-weight: bold;
+}
+
+.sidebar-menu li a.nav-link.active img.icon {
+  border: 2px solid black;
+}
+
+.sidebar-menu li a.nav-link .icon {
+  margin-right: 15px;
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar-menu li a.nav-link:hover {
+  background-color: #f5f5f5;
+}
+
+.sidebar-menu li a.nav-link:hover .icon {
+  transform: scale(1.08);
+}
+
+.rounded-circle {
+  border-radius: 100%;
+}
+
+.logo-wrapper{
+  font-size: 25px;
+}

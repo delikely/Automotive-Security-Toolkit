@@ -1,0 +1,123 @@
+#sub-content{
+    /* padding-top: 15px; */
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+h1{
+font-size: 2em;
+    margin: 0;
+    line-height: 1.4em;
+    padding: .7em 0 0 0;
+    color: #00400d;
+    font-weight: 600;
+    font-style: normal;
+}
+
+fieldset {
+    position: relative;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    border: 0;
+    padding: 1em 0;
+    display: block;
+}
+fieldset label{
+    background: #cccccc;
+    display: inline-block;
+    margin: 3px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 90%;
+    border-radius: 5px;
+    color: #666666;
+    border: 1px solid #999999;
+}
+
+fieldset legend {
+    background-color: #666666;
+    color: #ffffff;
+    float: none;
+    margin: 0;
+    width: 100%;
+    padding: 0.5em 0px;
+    text-indent: 1em;
+    font-size: 1.2rem;
+}
+
+fieldset div.metric { padding: 0; margin: 0.5em 0; }
+
+fieldset h3 {
+    font-size: 1.1rem;
+}
+
+fieldset input { display: none; width:auto; }
+
+
+fieldset div.column-left {
+    float: left;
+    height: auto;
+    max-width: 40%;
+    padding-left: 35px;
+}
+
+fieldset div.column-right {
+    float: right;
+    height: auto;
+    padding-right: 35px;
+
+}
+
+fieldset div.column {
+    width: 45%;
+    margin: 0 0 0 1em;
+}
+
+fieldset label:hover { background: #666666; color: #ffffff; border: 1px solid #666666 }
+fieldset input:checked + label { background: green; border: 1px solid green; color: #ffffff; }
+
+.scoreRating {
+    position: absolute;
+    top: -36px;
+    right: 0;
+    padding: 0 0.4em;
+    margin: 0 15px;
+    border: 2px solid #666666;
+    background: #dddddd;
+    font-size: 11px;
+    border-radius: 10px;
+    width: 100px;
+    height: auto;
+    line-height: 150%;
+    text-align: center;
+}
+
+.scoreRating.none,
+.scoreRating.low,
+.scoreRating.medium,
+.scoreRating.high,
+.scoreRating.critical { color:#ffffff;}
+
+.scoreRating.none     { background:#53aa33; border:2px solid #53aa33; }
+.scoreRating.low      { background:#ffcb0d; border:2px solid #ffcb0d; }
+.scoreRating.medium   { background:#f9a009; border:2px solid #f9a009; }
+.scoreRating.high     { background:#df3d03; border:2px solid #df3d03; }
+.scoreRating.critical { background:#cc0500; border:2px solid #cc0500; }
+.scoreRating span     { font-size: 150%; font-weight: bold; width: 100%; }
+.needBaseMetrics      { text-align:center; line-height:100%; padding-top:5px; font-size:15px; }
+
+#baseMetricScore {
+    display: block;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: normal;
+    margin-top: 4px;
+}
+
+#baseSeverity {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    display: block;
+}
+
