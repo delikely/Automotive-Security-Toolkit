@@ -17,14 +17,14 @@ body {
 }
 
 #navigator {
-  width: 15%;
+  width: 16%;
   height: 100%;
   overflow: hidden;
   float: left;
 }
 
 .sidebar {
-  width: 15%;
+  width: 16%;
   background-color: #ffffff;
   padding-top: 35px;
   position: fixed;
