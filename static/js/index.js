@@ -11,7 +11,7 @@ function load_page(){
         document.getElementById("content").innerHTML = '<iframe src="attack_potential_21434_2021_calculator.html" style="width: 100%;height: 100%;"></iframe>'
         return
     }
-    console.log("111",option,"1111")
+
     if(option=="home" || option ==""){
         $("#home").click();
         document.getElementById("content").innerHTML = '<iframe src="home.html" style="width: 100%;height: 100%;"></iframe>'
