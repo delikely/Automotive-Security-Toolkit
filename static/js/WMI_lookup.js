@@ -29,7 +29,7 @@ $('#data-table').bootstrapTable({
 
 function loadData(){
     $.ajax({
-        url: "/static/data/wmi.json",
+        url: "static/data/WMI.json",
         type: "GET",
         data: "",
         success: function (result) {
