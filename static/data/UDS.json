@@ -1,0 +1,250 @@
+{
+    "service_define":[
+        {
+            "Defined in": "Reserved by ISO 14229-1",
+            "SID": "0x00",
+            "Service type": "Not applicable"
+        },
+        {
+            "Defined in": "ISO 15031-5/SAE J1979",
+            "SID": "0x01-0x0F",
+            "Service type": "ISO 15031-5/SAE J1979 specified services"
+        },
+        {
+            "Defined in": "ISO 14229-1",
+            "SID": "0x10-0x3E",
+            "Service type": "Service requests specified in ISO 14229-1"
+        },
+        {
+            "Defined in": "Reserved by ISO 14229-1",
+            "SID": "0x3F",
+            "Service type": "Not applicable"
+        },
+        {
+            "Defined in": "Reserved by ISO 14229-1",
+            "SID": "0x40",
+            "Service type": "Not applicable"
+        },
+        {
+            "Defined in": "ISO 15031-5 / SAE J1979",
+            "SID": "0x41-0x4F",
+            "Service type": "ISO 15031-5/SAE J1979 positive service response"
+        },
+        {
+            "Defined in": "ISO 14229-1",
+            "SID": "0x50-0x7E",
+            "Service type": "Positive service responses specified in ISO 14229-1"
+        },
+        {
+            "Defined in": "ISO 14229-1",
+            "SID": "0x7F",
+            "Service type": "Negative response service identifier"
+        },
+        {
+            "Defined in": "Reserved by ISO 14229-1",
+            "SID": "0x80-0x82",
+            "Service type": "Not applicable"
+        },
+        {
+            "Defined in": "ISO 14229-1",
+            "SID": "0x83-0x88",
+            "Service type": "Service requests"
+        },
+        {
+            "Defined in": "Reserved by ISO 14229-1",
+            "SID": "0x89-0xB9",
+            "Service type": "Not applicable"
+        },
+        {
+            "Defined in": "Defined by system supplier",
+            "SID": "0xBA-0xBE",
+            "Service type": "Service requests"
+        },
+        {
+            "Defined in": "Reserved by ISO 14229-1",
+            "SID": "0xBF-0xC2",
+            "Service type": "Not applicable"
+        },
+        {
+            "Defined in": "ISO 14229-1",
+            "SID": "0xC3-0xC8",
+            "Service type": "Positive service responses specified in ISO 14229-1"
+        },
+        {
+            "Defined in": "Reserved by ISO 14229-1",
+            "SID": "0xC9-0xF9",
+            "Service type": "Not applicable"
+        },
+        {
+            "Defined in": "Defined by system supplier",
+            "SID": "0xFA-0xFE",
+            "Service type": "Positive service responses"
+        },
+        {
+            "Defined in": " Reserved by ISO 14229-1",
+            "SID": "0xFF",
+            "Service type": "Not applicable"
+        }
+    ],
+
+    "uds_service": [
+        {
+            "defaultSession": "x",
+            "SID": "0x10",
+            "abbreviation": "DiagnosticSessionControl",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x",
+            "SID": "0x11",
+            "abbreviation": "ECUReset",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x27",
+            "abbreviation": "SecurityAccess",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x28",
+            "abbreviation": "CommunicationControl",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x",
+            "SID": "0x3E",
+            "abbreviation": "TesterPresent",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x83",
+            "abbreviation": "AccessTimingParameter",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x84",
+            "abbreviation": "SecuredDataTransmission",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x85",
+            "abbreviation": "ControlDTCSetting",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x<sup>a</sup>",
+            "SID": "0x86",
+            "abbreviation": "ResponseOnEvent",
+            "non-defaultSession": "x"
+        },
+        {
+            "SID": "0x87",
+            "abbreviation": "LinkControl",
+            "non-defaultSession": "x",
+            "not defaultSession": "applicable"
+        },
+        {
+            "defaultSession": "x<sup>b</sup>",
+            "SID": "0x22",
+            "abbreviation": "ReadDataByIdentifier",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x<sup>c</sup>",
+            "SID": "0x23",
+            "abbreviation": "ReadMemoryByAddress",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x<sup>b</sup>",
+            "SID": "0x24",
+            "abbreviation": "ReadScalingDataByIdentifier",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x2A",
+            "abbreviation": "ReadDataByPeriodicIdentifier",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x<sup>d</sup>",
+            "SID": "0x2C",
+            "abbreviation": "DynamicallyDefineDataIdentifier",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x<sup>b</sup>",
+            "SID": "0x2E",
+            "abbreviation": "WriteDataByIdentifier",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x<sup>c</sup>",
+            "SID": "0x3D",
+            "abbreviation": "WriteMemoryByAddress",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x",
+            "SID": "0x14",
+            "abbreviation": "ClearDiagnosticInformation",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x",
+            "SID": "0x19",
+            "abbreviation": "ReadDTCInformation",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x2F",
+            "abbreviation": "InputOutputControlByIdentifier",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "x<sup>e</sup>",
+            "SID": "0x31",
+            "abbreviation": "RoutineControl",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x34",
+            "abbreviation": "RequestDownload",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x35",
+            "abbreviation": "RequestUpload",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x36",
+            "abbreviation": "TransferData",
+            "non-defaultSession": "x"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x37",
+            "abbreviation": "RequestTransferExit",
+            "non-defaultSession": "X"
+        },
+        {
+            "defaultSession": "not applicable",
+            "SID": "0x38",
+            "abbreviation": "RequestFileTransfer",
+            "non-defaultSession": "X"
+        }
+    ]
+
+
+}

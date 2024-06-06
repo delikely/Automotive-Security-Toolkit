@@ -1,0 +1,92 @@
+#sub-content{
+    max-width: 80%;
+    max-height: 100%;
+    /* overflow: hidden; */
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a { 
+    text-decoration:none;
+    color: #000; 
+}
+
+#info{
+    padding-top: 30px;
+    word-break: break-all;
+}
+
+#main_title{
+    display: inline-block;
+    font-size: 1.75rem;
+}
+
+/* #main_title a{
+    color: gray;
+} */
+
+#sub_title{
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.bootstrap-table{
+    height: 320px;
+}
+
+
+.center_text {
+    text-align: center !important;
+}
+
+/* ----------下拉显示，点击隐藏信息 --------- start */
+.active_content {
+    background-color: #01B2BC !important;
+    color: #fff !important;
+}
+
+.accordion_content {
+    color: #434343;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: -1px;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #e6e6e6;
+    text-align: left;
+    font-size: 16px;
+    transition: none;
+}
+
+
+.accordion_content:after {
+    content: '\002B';
+    font-size: 110%;
+    font-weight: 700;
+    float: right;
+    margin-right: 10px
+}
+
+.active_content:after {
+    font-size: 110%;
+    content: "\2212"
+}
+
+.panel_content {
+    padding: 0 18px 0 10px;
+    background-color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s ease-out
+}
+
+.accordion_content,ul.tab,ul.tab .activetab {
+    background-color: #fff
+}
+
+/* ----------下拉显示，点击隐藏信息 --------- end */
+

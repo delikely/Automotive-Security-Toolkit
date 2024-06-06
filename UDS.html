@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="static/images/tool.png">
+        <link rel="stylesheet" href="static/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/bootstrap-icons.css">
+        <link rel="stylesheet" href="static/css/bootstrap-table.min.css" rel="stylesheet">
+
+        <!-- <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.3/dist/bootstrap-table.min.css"> -->
+
+        <link href="static/css/content-common.css" rel="stylesheet">
+        <link href="static/css/UDS.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div id="sub-content" class="center">
+            <div id="info">
+                <h1 id="main_title"><a href="https://www.iso.org/standard/72439.html" target="_blank">ISO 14229: UDS,</a></h1><h2 id="sub_title">DID parameter definitions</h2>
+                <div id="introduction">
+
+                </div>
+            </div>
+            
+            <div class="table-block">
+                <div>
+                    <table id="service_define-data-table"   
+                    data-toolbar="#data-toolbar"
+                    >
+                    </table>
+                </div>
+    
+                <br>
+                <br>
+                <br>
+                <button class="accordion_content center_text" type="button">About UDS service</button>
+                <div class="panel_content">
+                    <br>
+                    <p>
+
+                    </p>
+                </div>  
+
+
+            </div>
+
+            <div class="table-block">
+                <div>
+                    <table id="service-data-table"   
+                    data-toolbar="#data-toolbar"
+                    >
+                    </table>
+                </div>
+    
+                <br>
+                <br>
+                <br>
+                <button class="accordion_content center_text" type="button">About UDS service</button>
+                <div class="panel_content">
+                    <br>
+                    <p>
+                        a It is implementation specific whether the ResponseOnEvent service is also allowed during the defaultSession.<br>
+                        b Secured dataIdentifiers require a SecurityAccess service and therefore a non-default diagnostic session.<br>
+                        c Secured memory areas require a SecurityAccess service and therefore a non-default diagnostic session.<br>
+                        d A dataIdentifier can be defined dynamically in the default and non-default diagnostic session.<br>
+                        e Secured routines require a SecurityAccess service and therefore a non-default diagnostic session. A routine that requires to be<br>
+                        stopped actively by the client also requires a non-default session.<br>
+                    </p>
+                </div>  
+
+
+            </div>
+
+
+            <div class="table-block">
+                <div>
+                    <table id="DID-data-table"   
+                    data-toolbar="#data-toolbar"
+                    >
+                    </table>
+                </div>
+                
+                <br>
+                <br>
+                <br>
+                <button class="accordion_content center_text" type="button">About DID parameter definitions</button>
+                <div class="panel_content">
+                    <br>
+                    <p>
+                        The parameter dataIdentifier (DID) logically represents an object (e.g., Air Inlet Door Position) or collection of objects. This parameter shall be available in the server's memory. The dataIdentifier value shall either exist in fixed memory or temporarily stored in RAM if defined dynamically by the service dynamicallyDefineDataIdentifier. In general, a dataIdentifier is capable of being utilized in many diagnostic service requests including 0x22 (readDataByIdentifier), 0x2E (writeDataByIdentifier), and 0x2F (inputOutputControlByIdentifier). A dataIdentifier is also used in various diagnostic service responses (e.g.,positive response to service 0x19 subfunction readDTCSnapshotRecordByDTCNumber)<br>
+                        DIDs are defined by the client using service 0x2C (dynamicallyDefineDataIdentifier)
+                    </p>
+                </div>  
+            </div>
+            
+            <div class="table-block">
+                <div>
+                    <table id="NRC-data-table"   
+                    data-toolbar="#data-toolbar"
+                    >
+                    </table>
+                </div>
+    
+                <br>
+                <br>
+                <br>
+                <button class="accordion_content center_text" type="button">About Negative response codes</button>
+                <div class="panel_content">
+                    <br>
+                    <p>
+                        Each diagnostic service specifies applicable NCRs(negative response codes). The diagnostic service implementation in the server may also utilise additional and applicable negative response codes specified in this as defined by the vehicle manufacturer.
+                        The negative response code range 0x00 – 0xFF is divided into three ranges:<br>
+                        1. 0x00: positiveResponse parameter value for server internal implementation,<br>
+                        2. 0x01 – 0x7F: communication related negative response codes,<br>
+                        3. 0x80 – 0xFF: negative response codes for specific conditions that are not correct at the point in time the
+                        request is received by the server. These response codes may be utilised whenever response code 0x22
+                        (conditionsNotCorrect) is listed as valid in order to report more specifically why the requested action can
+                        not be taken.
+                    </p>
+                </div>  
+
+
+            </div>
+
+
+        </div>
+    
+    </body>
+    
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/bootstrap-table.min.js"></script>
+    <!-- <script src="https://unpkg.com/bootstrap-table@1.22.3/dist/bootstrap-table.min.js"></script> -->
+
+    <script src="static/js/tools.js"></script>
+
+    <script src="static/js/UDS.js"></script>
+
+</html>

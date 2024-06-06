@@ -17,6 +17,30 @@ function load_page(){
         return
     }
 
+    if(option=="UDS"){
+        $("#UDS").click();
+        document.getElementById("content").innerHTML = '<iframe src="UDS.html" style="width: 100%;height: 100%;"></iframe>'
+        return
+    }
+
+    if(option=="UDS_NRC"){
+        $("#UDS_NRC").click();
+        document.getElementById("content").innerHTML = '<iframe src="UDS_NRC.html" style="width: 100%;height: 100%;"></iframe>'
+        return
+    }
+
+    if(option=="UDS_DID"){
+        $("#UDS_DID").click();
+        document.getElementById("content").innerHTML = '<iframe src="UDS_DID.html" style="width: 100%;height: 100%;"></iframe>'
+        return
+    }
+
+    if(option=="J1939"){
+        $("#J1939").click();
+        document.getElementById("content").innerHTML = '<iframe src="J1939.html" style="width: 100%;height: 100%;"></iframe>'
+        return
+    }
+    
     // 都匹配不上，则到默认主页
     if(option=="home" || option ==""){
         $("#home").click();

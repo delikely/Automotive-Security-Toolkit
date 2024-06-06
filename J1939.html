@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="static/images/tool.png">
+        <link rel="stylesheet" href="static/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/bootstrap-icons.css">
+        <link rel="stylesheet" href="static/css/bootstrap-table.min.css" rel="stylesheet">
+
+        <link href="static/css/content-common.css" rel="stylesheet">
+        <link href="static/css/J1939.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div id="sub-content" class="center">
+            <div id="info">
+                <h1 id="main_title"><a href="" target="_blank">J1939</a></h1><h2 id="sub_title">PGN definitions</h2>
+                <div id="introduction">
+                  
+                </div>
+            </div>
+            
+            <div>
+                <table id="data-table"   
+                data-toolbar="#data-toolbar"
+                >
+                </table>
+            </div>
+            
+            <br>
+            <br>
+            <br>
+            <button class="accordion_content center_text" type="button">About Parameter Group Number (PGN)</button>
+            <div class="panel_content">
+                <br>
+                <p>
+                Parameter Group Number (PGN) is the unique frame identifier within the J1939 standard, used to refer to the value of the Reserve bit, Data Page, PDU Format, and PDU Specific fields combined into a single 18-bit value. Parameter Groups contains the information on parameter assignments within each message’s 8-byte CAN data field, repetition rate, and priority.
+                </p>
+            </div>  
+
+        </div>
+    
+    </body>
+    
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/bootstrap-table.min.js"></script>
+
+    <script src="static/js/tools.js"></script>
+    
+    <script src="static/js/J1939.js"></script>
+
+</html>

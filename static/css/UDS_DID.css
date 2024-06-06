@@ -1,0 +1,22 @@
+#sub-content{
+    overflow: visible;
+    max-width: 90%;
+}
+
+/* 页面无限长度，删除后出现滚动条 */
+/* .bootstrap-table .fixed-table-container .fixed-table-body{
+    height: auto;
+} */
+
+.DID-class{
+    text-align: center;
+}
+
+.abbreviation-class{
+    /* max-width: 300px; */
+    overflow-wrap: break-word
+}
+
+.bootstrap-table{
+    height: 500px;
+}

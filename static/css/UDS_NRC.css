@@ -1,0 +1,21 @@
+.NRC-class{
+    min-width: 100px;
+}
+
+#main_title{
+    display: inline-block;
+    font-size: 1.75rem;
+}
+
+#sub-content{
+    overflow: visible;
+}
+
+/* 页面无限长度，删除后出现滚动条 */
+/* .bootstrap-table .fixed-table-container .fixed-table-body{
+    height: auto;
+} */
+
+.NRC-class{
+    text-align: center;
+}

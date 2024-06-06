@@ -1,32 +1,7 @@
-#sub-content{
-    /* padding-top: 100px;
-    padding-left: 30px;
-    padding-right: 30px; */
-    max-width: 1000px;
-    max-height: 100%;
-    overflow: hidden;
-
-}
-
-.center {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#info{
-    padding-top: 30px;
-}
-
-#title{
-    text-decoration: none;
-}
-
-a { 
-    text-decoration:none;
-    color: #000; 
+.WMI-class{
+    text-align: center;
 }
 
 .bootstrap-table{
-    max-height: 70%;
+    height: 500px;
 }
-

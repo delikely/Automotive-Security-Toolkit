@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="static/images/tool.png">
+        <link rel="stylesheet" href="static/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/bootstrap-icons.css">
+        <link rel="stylesheet" href="static/css/bootstrap-table.min.css" rel="stylesheet">
+        
+        <link href="static/css/content-common.css" rel="stylesheet">
+        <link href="static/css/UDS_NRC.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div id="sub-content" class="center">
+            <div id="info">
+                <h1 id="main_title"><a href="https://www.iso.org/standard/72439.html" target="_blank">ISO 14229: UDS,</a></h1><h2 id="sub_title">Negative response codes</h2>
+                <div id="introduction">
+                
+                </div>  
+            </div>
+            
+            <div>
+                <table id="data-table"   
+                data-toolbar="#data-toolbar"
+                >
+                </table>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <button class="accordion_content center_text" type="button">About Negative response codes</button>
+            <div class="panel_content">
+                <br>
+                <p>
+                    Each diagnostic service specifies applicable NCRs(negative response codes). The diagnostic service implementation in the server may also utilise additional and applicable negative response codes specified in this as defined by the vehicle manufacturer.
+                    The negative response code range 0x00 – 0xFF is divided into three ranges:<br>
+                    1. 0x00: positiveResponse parameter value for server internal implementation,<br>
+                    2. 0x01 – 0x7F: communication related negative response codes,<br>
+                    3. 0x80 – 0xFF: negative response codes for specific conditions that are not correct at the point in time the
+                    request is received by the server. These response codes may be utilised whenever response code 0x22
+                    (conditionsNotCorrect) is listed as valid in order to report more specifically why the requested action can
+                    not be taken.
+                </p>
+            </div>  
+
+        </div>
+    
+    </body>
+    
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/bootstrap-table.min.js"></script>
+
+    <script src="static/js/tools.js"></script>
+
+    <script src="static/js/UDS_NRC.js"></script>
+
+</html>

@@ -12,17 +12,18 @@ $('#data-table').bootstrapTable({
         },{
             field: 'WMI',
             title: 'WMI',
-            sortable: true,
             class:'WMI-class',
+            sortable: true,
         },{
             field: 'Manufacturer',
             title: 'Manufacturer',
-            sortable: true,
             class:'Manufacturer-class',
+            sortable: true,
         }
     ],
     sortName: 'WMI',
     sortOrder: 'desc',
+    search: true,
     // pagination: true,
     // showColumns:true,
 });

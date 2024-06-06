@@ -1,0 +1,488 @@
+[
+    {
+        "DID": "0xF180",
+        "abbreviation": "BootSoftwareIdentificationDID",
+        "mnemonic": "BSIDID",
+        "description": "This value shall be used to reference the vehicle manufacturer specific ECU boot software identification record. The first data byte of the record data shall be the numberOfModules that are reported. Following the numberOfModules the boot software identification(s) are reported. The format of the boot software identification structure shall be ECU specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF181",
+        "abbreviation": "applicationSoftwareIdentificationDID",
+        "mnemonic": "ASIDID",
+        "description": "This value shall be used to reference the vehicle manufacturer specific ECU application software number(s). The first data byte of the record data shall be the numberOfModules that are reported. Following the numberOfModules the application software identification(s) are reported. The format of the application software identification structure shall be ECU specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF182",
+        "abbreviation": "applicationDataIdentificationDID",
+        "mnemonic": "ADIDID",
+        "description": "This value shall be used to reference the vehicle manufacturer specific ECU application data identification record. The first data byte of the record data shall be the numberOfModules that are reported. Following the numberOfModules the application data identification(s) are reported. The format of the application data identification structure shall be ECU specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF183",
+        "abbreviation": "bootSoftwareFingerprintDID",
+        "mnemonic": "BSFPDID",
+        "description": "This value shall be used to reference the vehicle manufacturer specific ECU boot software fingerprint identification record. Record data content and format shall be ECU specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF184",
+        "abbreviation": "applicationSoftwareFingerprintDID",
+        "mnemonic": "ASFPDID",
+        "description": "This value shall be used to reference the vehicle manufacturer specific ECU application software fingerprint identification record. Record data content and format shall be ECU specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF185",
+        "abbreviation": "applicationDataFingerprintDID",
+        "mnemonic": "ADFPDID",
+        "description": "This value shall be used to reference the vehicle manufacturer specific ECU application data fingerprint identification record. Record data content and format shall be ECU specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF186",
+        "abbreviation": "ActiveDiagnosticSessionDID",
+        "mnemonic": "ADSDID",
+        "description": "This value shall be used to report the active diagnostic session in the server. The values are defined by the diagnosticSessionTypeSubFunction parameter in the DiagnosticSessionControl service."
+    },
+    {
+        "DID": "0xF187",
+        "abbreviation": "vehicleManufacturerSparePartNumberDID",
+        "mnemonic": "VMSPNDID",
+        "description": "This value shall be used to reference the vehicle manufacturer spare part number. Record data content and format shall be server specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF188",
+        "abbreviation": "vehicleManufacturerECUSoftwareNumberDID",
+        "mnemonic": "VMECUSNDID",
+        "description": "This value shall be used to reference the vehicle manufacturer ECU (server) software number. Record data content and format shall be server specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF189",
+        "abbreviation": "vehicleManufacturerECUSoftwareVersionNumberDID",
+        "mnemonic": "VMECUSVNDID",
+        "description": "This value shall be used to reference the vehicle manufacturer ECU (server) software version number. Record data content and format shall be server specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": " 0xF18A",
+        "abbreviation": "systemSupplierIdentifierDID",
+        "mnemonic": "SSIDDID",
+        "description": "This value shall be used to reference the system supplier name and address information. Record data content and format shall be server specific and defined by the system supplier."
+    },
+    {
+        "DID": "0xF18B",
+        "abbreviation": "ECUManufacturingDateDID(year/month/day)",
+        "mnemonic": "ECUMDDID",
+        "description": "This value shall be used to reference the ECU (server) manufacturing date. Record data content and format shall be unsigned numeric, ASCII or BCD, and shall be ordered as Year, Month, Day."
+    },
+    {
+        "DID": "0xF18C",
+        "abbreviation": "ECUSerialNumberDID",
+        "mnemonic": "ECUSNDID",
+        "description": "This value shall be used to reference the ECU (server) serial number. Record data content and format shall be server specific."
+    },
+    {
+        "DID": "0xF18D",
+        "abbreviation": "supportedFunctionalUnitsDID",
+        "mnemonic": "SFUDID",
+        "description": "This value shall be used to request the functional units implemented in a server."
+    },
+    {
+        "DID": " 0xF18E",
+        "abbreviation": "VehicleManufacturerKitAssemblyPartNumberDID",
+        "mnemonic": "VMKAPNDID",
+        "description": "This value shall be used to reference the vehicle manufacturer order number for a kit (assembled parts bought as a whole for production e.g. cockpit), when the spare part number designates only the server (e.g. for aftersales). The record data content and format shall be server specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF18F",
+        "abbreviation": "RegulationXSoftwareIdentificationNumbers(RxSWIN)",
+        "mnemonic": "RXSWIN",
+        "description": "This value shall be used to report Regulation-related Software Identification Numbers.\nThe diagnostic response consists of a recursion of the following four elements:\n— LengthOfRxSWIN (0x01 - 0xFF) defining the total length of this RegulationIdentification, separation character and\nSoftwareIdentification;\n— RegulationIdentification (n bytes) defining the reference number of the regulation identification (e.g.R079,GB/T36047);\n— Separation character (0x20) ASCII \"space\";\n— SoftwareIdentification (m bytes) defining the content of the software identification.\nThis recursion is done for every RxSWIN reported by the respective diagnostic server.\nRegulationIdentification and SoftwareIdentification shall contain only printable ASCII characters (0x21 through 0x7E), and shall be reported as ASCII values.\nThe SoftwareIdentification content shall be defined by the vehicle manufacturer.\nExample for a diagnostic response:\n0x62 0xF18F 0x0F \"R079 1234567890\" 0x17 \"GB/T36047 1234567890ABC\"\nIn this example two RxSWINs are reported:\n— \"1234567890\" for Regulation UN/ECE R079, and\n— \"1234567890ABC\" for Chinese Standard GB/T36047.\n0x0F and 0x17 indicate the total length of the RegulationIdentification, separation character and SoftwareIdentification in this example."
+    },
+    {
+        "DID": "0xF190",
+        "abbreviation": "VINDID",
+        "mnemonic": "VINDID",
+        "description": "This value shall be used to reference the VIN number. Record data content and format shall be specified by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF191",
+        "abbreviation": "vehicleManufacturerECUHardwareNumberDID",
+        "mnemonic": "VMECUHNDID",
+        "description": "This value shall be used by reading services to reference the\nvehicle manufacturer specific ECU (server) hardware number.\nRecord data content and format shall be server specific and\ndefined by vehicle manufacturer."
+    },
+    {
+        "DID": "0xF192",
+        "abbreviation": "systemSupplierECUHardwareNumberDID",
+        "mnemonic": "SSECUHWNDID",
+        "description": "This value shall be used to reference the system supplier specific ECU (server) hardware number. Record data content and format shall be server specific and defined by the system supplier."
+    },
+    {
+        "DID": "0xF193",
+        "abbreviation": "systemSupplierECUHardwareVersionNumberDID",
+        "mnemonic": "SSECUHWVNDID",
+        "description": "This value shall be used to reference the system supplier specific ECU (server) hardware version number. Record data content and format shall be server specific and defined by the system supplier."
+    },
+    {
+        "DID": "0xF194",
+        "abbreviation": "systemSupplierECUSoftwareNumberDID",
+        "mnemonic": "SSECUSWNDID",
+        "description": "This value shall be used to reference the system supplier specific ECU (server) software number. Record data content and format shall be server specific and defined by the system supplier."
+    },
+    {
+        "DID": "0xF195",
+        "abbreviation": "systemSupplierECUSoftwareVersionNumberDID",
+        "mnemonic": "SSECUSWVNDID",
+        "description": "This value shall be used to reference the system supplier specific ECU (server) software version number. Record data content and format shall be server specific and defined by the system supplier."
+    },
+    {
+        "DID": " 0xF196",
+        "abbreviation": "exhaustRegulationOrTypeApprovalNumberDID",
+        "mnemonic": "EROTANDID",
+        "description": "This value shall be used to reference the exhaust regulation or type approval number (valid for those systems which require type approval). Record data content and format shall be server specific and defined by the vehicle manufacturer. Refer to the relevant legislation for any applicable requirements."
+    },
+    {
+        "DID": "0xF197",
+        "abbreviation": "systemNameOrEngineTypeDID",
+        "mnemonic": "SNOETDID",
+        "description": "This value shall be used to reference the system name or engine type. Record data content and format shall be server specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF198",
+        "abbreviation": "repairShopCodeOrTesterSerialNumberDID",
+        "mnemonic": "RSCOTSNDID",
+        "description": "This value shall be used to reference the system name or engine type. Record data content and format shall be server specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF199",
+        "abbreviation": "programmingDateDID(year/month/day)",
+        "mnemonic": "PDDID",
+        "description": "This value shall be used to reference the date when the server was last programmed. Record data content and format shall be unsigned numeric, ASCII or BCD, and shall be ordered as Year, Month, Day."
+    },
+    {
+        "DID": "0xF19A",
+        "abbreviation": "calibrationRepairShopCodeOrCalibrationEquipmentSerialNumberDID",
+        "mnemonic": "CRSCOCESNDID",
+        "description": "This value shall be used to reference the repair shop code or client serial number (e.g. to indicate the most recent service used by the client to re-calibrate the server). Record data content and format shall be server specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF19B",
+        "abbreviation": "calibrationDateDID(year/month/day)",
+        "mnemonic": "CDDID",
+        "description": "This value shall be used to reference the date when the server was last calibrated. Record data content and format shall be unsigned numeric, ASCII or BCD, and shall be ordered as Year, Month, Day."
+    },
+    {
+        "DID": "0xF19D",
+        "abbreviation": "calibrationEquipmentSoftwareNumberDID",
+        "mnemonic": "CESWNDID",
+        "description": "This value shall be used to reference software version within the client used to calibrate the server. Record data content and format shall be server specific and defined by the vehicle manufacturer."
+    },
+    {
+        "DID": "0xF19D",
+        "abbreviation": "ECUInstallationDateDID(year/month/day)",
+        "mnemonic": "EIDDID",
+        "description": "This value shall be used to reference the date when the ECU (server) was installed in the vehicle. Record data content and format shall be either unsigned numeric, ASCII or BCD, and shall be ordered as Year, Month, Day."
+    },
+    {
+        "DID": " 0xF19E",
+        "abbreviation": "ODXFileDID",
+        "mnemonic": "ODXFDID",
+        "description": "This value shall be used to reference the ODX (Open Diagnostic Data Exchange) file of the server to be used to interpret and scale the server data."
+    },
+    {
+        "DID": "0xF19F",
+        "abbreviation": "EntityDID",
+        "mnemonic": "EDID",
+        "description": "This value shall be used to reference the entity data identifier for a secured data transmission."
+    },
+    {
+        "DID": "0xFA00",
+        "abbreviation": "AirbagDeployment:Number of PCUs(ISO 26021-2)",
+        "mnemonic": "ADDID_FA00",
+        "description": ""
+    },
+    {
+        "DID": "0xFA01",
+        "abbreviation": "AirbagDeployment:Deployment Method Version(ISO 26021-2)",
+        "mnemonic": "ADDID_FA01",
+        "description": ""
+    },
+    {
+        "DID": "0xFA02",
+        "abbreviation": "AirbagDeployment:Address Information of PCU(ISO 26021-2)",
+        "mnemonic": "ADDID_FA02",
+        "description": ""
+    },
+    {
+        "DID": "0xFA03",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA03",
+        "description": ""
+    },
+    {
+        "DID": "0xFA04",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA04",
+        "description": ""
+    },
+    {
+        "DID": "0xFA05",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA05",
+        "description": ""
+    },
+    {
+        "DID": "0xFA06",
+        "abbreviation": "AirbagDeployment:Deployment Loop Table of PCU(ISO 26021-2)",
+        "mnemonic": "ADDID_FA06",
+        "description": ""
+    },
+    {
+        "DID": "0xFA07",
+        "abbreviation": "AirbagDeployment:Dismantler Info(ISO 26021-2)",
+        "mnemonic": "ADDID_FA07",
+        "description": ""
+    },
+    {
+        "DID": "0xFA08",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA08",
+        "description": ""
+    },
+    {
+        "DID": "0xFA09",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA09",
+        "description": ""
+    },
+    {
+        "DID": "0xFA0A",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA0A",
+        "description": ""
+    },
+    {
+        "DID": "0xFA0B",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA0B",
+        "description": ""
+    },
+    {
+        "DID": "0xFA0C",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA0C",
+        "description": ""
+    },
+    {
+        "DID": "0xFA0D",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA0D",
+        "description": ""
+    },
+    {
+        "DID": "0xFA0E",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA0E",
+        "description": ""
+    },
+    {
+        "DID": "0xFA0F",
+        "abbreviation": "AirbagDeployment(ISO 26021-2)",
+        "mnemonic": "ADDID_FA0F",
+        "description": ""
+    },
+    {
+        "DID": "0xFA10",
+        "abbreviation": "NumberOfEDRDevices",
+        "mnemonic": "NOEDRD",
+        "description": "This value shall be used to report the number of EDR devices capable of reporting EDR data."
+    },
+    {
+        "DID": "0xFA11",
+        "abbreviation": "EDRIdentification",
+        "mnemonic": "EDRI",
+        "description": "This value shall be used to report EDR identification data"
+    },
+    {
+        "DID": "0xFA12",
+        "abbreviation": "EDRDeviceAddressInformation",
+        "mnemonic": "EDRDAI",
+        "description": "This value shall be used to report EDR device adress information according to the format defined in ISO 26021-2 for dataIdentifier 0xFA02."
+    },
+    {
+        "DID": "0xFF00",
+        "abbreviation": "UDSVersionDataIdentifier",
+        "mnemonic": "UDSVDID",
+        "description": "This value shall be used to reference the UDS version implemented in the server. See Table C.11 for the scaling of this DID."
+    },
+    {
+        "DID": "0xFF01",
+        "abbreviation": "ReservedForISO15765-5",
+        "mnemonic": "RESRVDCPADLC",
+        "description": "This value shall be used to identify whether the vehicle's ECUs (servers) connected to the diagnostic link connector support CAN Classical or CAN FD or both.Definition of return values:\n00: CAN Classical only\n01: CAN FD only\n02: CAN Classical and CAN FD\n03 to FF:ISO reserved"
+    },
+    {
+        "DID": "0x0000-0x00FF",
+        "abbreviation": "ISOSAEReserved",
+        "mnemonic": "ISOSAERESRVD",
+        "description": "This range of values shall be reserved by this document for future definition."
+    },
+    {
+        "DID": "0x0100-0xA5FF",
+        "abbreviation": "VehicleManufacturerSpecific",
+        "mnemonic": "VMS",
+        "description": "This range of values shall be used to reference vehicle manufacturer specific record data identifiers and input/output identifiers within the server"
+    },
+    {
+        "DID": "0xA600-0xA7FF",
+        "abbreviation": "ReservedForLegislativeUse",
+        "mnemonic": "RFLU",
+        "description": "This range of values is reserved for future legislative requirements."
+    },
+    {
+        "DID": "0xA800-0xACFF",
+        "abbreviation": "VehicleManufacturerSpecific",
+        "mnemonic": "VMS",
+        "description": "This range of values shall be used to reference vehicle manufacturer specific record data identifiers and input/output identifiers within the server"
+    },
+    {
+        "DID": "0xAD00-0xAFFF",
+        "abbreviation": "ReservedForLegislativeUse",
+        "mnemonic": "RFLU",
+        "description": "This range of values is reserved for future legislative requirements."
+    },
+    {
+        "DID": "0xB000-0xB1FF",
+        "abbreviation": "VehicleManufacturerSpecific",
+        "mnemonic": "VMS",
+        "description": "This range of values shall be used to reference vehicle manufacturer specific record data identifiers and input/output identifiers within the server"
+    },
+    {
+        "DID": "0xB200-0xBFFF",
+        "abbreviation": "ReservedForLegislativeUse",
+        "mnemonic": "RFLU",
+        "description": "This range of values is reserved for future legislative requirements."
+    },
+    {
+        "DID": "0xC000-0xC2FF",
+        "abbreviation": "VehicleManufacturerSpecific",
+        "mnemonic": "VMS",
+        "description": "This range of values shall be used to reference vehicle manufacturer specific record data identifiers and input/output identifiers within the server"
+    },
+    {
+        "DID": "0xC300-0xC3FF",
+        "abbreviation": "ReservedForLegislativeUse",
+        "mnemonic": "RFLU",
+        "description": "This range of values is reserved for future legislative requirements."
+    },
+    {
+        "DID": "0xCF00-0xEFFF",
+        "abbreviation": "VehicleManufacturerSpecific",
+        "mnemonic": "VMS",
+        "description": "This range of values shall be used to reference vehicle manufacturer specific record data identifiers and input/output identifiers within the server"
+    },
+    {
+        "DID": "0xF000-0xF00F",
+        "abbreviation": "networkConfigurationDataForTractorTrailerApplicationData-Identifier",
+        "mnemonic": "NCDFTTADID",
+        "description": "This value shall be used to request the remote addresses of all trailer systems independent of their functionality."
+    },
+    {
+        "DID": "0xF010-0xF0FF",
+        "abbreviation": "VehicleManufacturerSpecific",
+        "mnemonic": "VMS",
+        "description": "This value shall be used to request the remote addresses of all\ntrailer systems independent of their functionality."
+    },
+    {
+        "DID": "0xF100-0xF17F",
+        "abbreviation": "identificationOptionVehicleManufacturerSpecificDataIdentifier",
+        "mnemonic": "IDOPTVMSDID",
+        "description": "This range of values shall be used for vehicle manufacturer specific server/vehicle identification options."
+    },
+    {
+        "DID": "0xF1A0-0xF1EF",
+        "abbreviation": "identificationOptionVehicleManufacturerSpecific",
+        "mnemonic": "IDOPTVMS",
+        "description": "This range of values shall be used for vehicle manufacturer specific server/vehicle identification options."
+    },
+    {
+        "DID": "0xF1F0-0xF1FFF",
+        "abbreviation": "identificationOptionSystemSupplierSpecific",
+        "mnemonic": "IDOPTSSS",
+        "description": "This range of values shall be used for system supplier specific server/vehicle system identification options."
+    },
+    {
+        "DID": "0xF200-0xF2FF",
+        "abbreviation": "periodicDataIdentifier",
+        "mnemonic": "PDID",
+        "description": "This range of values shall be used to reference periodic record data identifiers. Those can either be statically or dynamically defined."
+    },
+    {
+        "DID": "0xF300-0xF3FF",
+        "abbreviation": "DynamicallyDefinedDataIdentifier",
+        "mnemonic": "DDDDI",
+        "description": "This range of values shall be used for dynamicallyDefinedDataIdentifiers."
+    },
+    {
+        "DID": "0xF400-0xF5FF",
+        "abbreviation": "OBDDataIdentifier",
+        "mnemonic": "OBDDID",
+        "description": "This range is reserved for regulated emissions-related data defined in SAE J1979-DA. Reserved for future regulated emissions related systems’ data parameters. Defined in SAE J1979-DA. This range of values is reserved to represent future defined OBD/EOBD on-board monitoring result values."
+    },
+    {
+        "DID": "0xF600-0xF6FF",
+        "abbreviation": "OBDMonitorDataIdentifier",
+        "mnemonic": "OBDMDID",
+        "description": "This range is reserved for regulated emissions-related data defined in SAE J1979-DA. Reserved for future regulated emissions related systems’ data parameters. Defined in SAE J1979-DA. This range of values is reserved to represent future defined OBD/EOBD on-board monitoring result values."
+    },
+    {
+        "DID": "0xF700-0xF7FF",
+        "abbreviation": "OBDDataIdentifier",
+        "mnemonic": "OBDDID",
+        "description": "This range is reserved for regulated emissions-related data defined in SAE J1979-DA. Reserved for future regulated emissions related systems’ data parameters. Defined in SAE J1979-DA. This range of values is reserved to represent future defined OBD/EOBD on-board monitoring result values."
+    },
+    {
+        "DID": "0xF800-0xF8FF",
+        "abbreviation": "OBDInfoTypeDataIdentifier",
+        "mnemonic": "OBDINFTYPDID",
+        "description": "This range of values is reserved for OBD/EOBD info type values as defined in ISO 15031-5."
+    },
+    {
+        "DID": "0xF900-0xF9FF",
+        "abbreviation": "TachographDataIdentifier",
+        "mnemonic": "TACHODID",
+        "description": "This range of values is reserved for Tachograph DIDs as defined in ISO 16844-7."
+    },
+    {
+        "DID": "0xFA00-0xFA0F",
+        "abbreviation": "AirbagDeploymentDataIdentifier",
+        "mnemonic": "ADDID",
+        "description": "This range of values is reserved for end of life activation of onboard pyrotechnic devices as defined in ISO 26021-2."
+    },
+    {
+        "DID": "0xFA13-0xFA18",
+        "abbreviation": "EDREntries",
+        "mnemonic": "EDRES",
+        "description": "This range of values shall be reserved by this document for future definition.This range of values shall be used to report individual EDR entries. Each DID shall represent a single EDR entry with FA13 representing the latest entry."
+    },
+    {
+        "DID": "0xFA19-0xFAFF",
+        "abbreviation": "SafetySystemDataIdentifier",
+        "mnemonic": "SSDID",
+        "description": "This range of values is reserved to represent safety system related DIDs."
+    },
+    {
+        "DID": "0xFB00-0xFCFF",
+        "abbreviation": "ReservedForLegislativeUse",
+        "mnemonic": "RFLU",
+        "description": "This range of values is reserved for future legislative requirements."
+    },
+    {
+        "DID": "0xFD00-0xFEFF",
+        "abbreviation": "SystemSupplierSpecific",
+        "mnemonic": "SSS",
+        "description": "This range of values shall be used to reference system supplier specific record data identifiers and input/output identifiers within the server."
+    },
+    {
+        "DID": "0xFF02-0xFFFF",
+        "abbreviation": "ISOSAEReserved",
+        "mnemonic": "ISOSAERESRVD",
+        "description": "This range of values shall be reserved by this document for future definition."
+    }
+]
