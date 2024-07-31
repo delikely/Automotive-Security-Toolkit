@@ -15,4 +15,8 @@ Python 3.11.6
 (venv) msmnile_gvmq:/data/local/tmp/pydroid $ pip --version
 pip 23.2.1 from /data/local/tmp/pydroid/venv/lib/python3.11/site-packages/pip (python 3.11)
 ```
+或直接运行 run.sh 
+```sh
+msmnile_gvmq:/data/local/tmp/pydroid $ source run.sh
 
+```
