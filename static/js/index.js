@@ -11,6 +11,12 @@ function load_page(){
         return
     }
 
+    if(option=="GB_T_45496_2025_calculator"){
+        $("#GB_T_45496_2025_calculatorr").click();
+        document.getElementById("content").innerHTML = '<iframe src="GB_T_45496_2025_calculator.html" style="width: 100%;height: 100%;"></iframe>'
+        return
+    }
+
     if(option=="WMI_lookup"){
         $("#WMI_lookup").click();
         document.getElementById("content").innerHTML = '<iframe src="WMI_lookup.html" style="width: 100%;height: 100%;"></iframe>'

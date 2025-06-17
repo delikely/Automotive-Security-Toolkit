@@ -1,0 +1,239 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="static/images/vulnerability.png">
+
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link href="static/css/GB_T_45496_2025_calculator.css" rel="stylesheet" />
+
+  <title>GB/T45496—2025 漏洞风险等级计算器</title>
+</head>
+
+<body>
+  <div id="sub-content">
+    <h1 id="mainTitle">GB/T45496—2025 漏洞风险等级计算器</h1>
+
+    <form action="#">
+      <p id="Reference">
+        《GB/T45496—2025 汽车产品召回 信息缺陷评估指南》提供了汽车产品信息缺陷评估的建议, 给出了评估流程、 评估与缺陷认定及评估结果处置。
+        适用于汽车产品整车生产者、 零部件生产者、 系统供应商、 数据服务商、 网络运营商、 产品召回主管部门、 产品召回技术机构等主体对在用车辆“云-管-端-外部链接”系统漏洞进行缺陷分析、 缺陷判定、
+        风险预警与应急处置。
+      </p>
+      <fieldset id="AP_calc">
+        <legend id="baseMetricGroup_Legend" title="信息缺陷评估综合考虑漏洞被利用引发危险事件或情形的可能性和严重性两个维度, 两者共同决定漏洞风险等级。 其中, 漏洞被利用风险可能性通过漏洞可获取性和漏洞利用难易程度共同决定。">漏洞风险等级</legend>
+        <div class="column column-left">
+          <div class="metric Accessibility_Level">
+            <h3 id="Accessibility_Level_Heading" title="">漏洞可获取性等级</h3>
+            <input name="" value="0" id="" class="Accessibility_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">容易：</div>挖掘信息漏洞无需依靠具备信息安全知识的人员、 无需掌握基础信息和业务信息、 仅需要公开的漏洞
+              利用工具, 漏洞信息及相关描述可直接收集得到
+            </label>
+            <input name="" value="1" id="" class="Accessibility_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">中：</div>挖掘信息漏洞需要依靠具备一般信息安全知识的人员、 掌握较少基础信息和业务信息、 使用通用商用
+              工具, 漏洞信息及相关描述通过一定挖掘收集得到
+            </label>
+            <input name="" value="2" id="" class="Accessibility_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">难：</div> 挖掘信息漏洞需要依靠具备较丰富信息安全知识的人员、 掌握大量的基础信息和业务信息、 使用一般
+              定制研发的专用设备及脚本, 漏洞信息及相关描述需要通过较深度挖掘得到
+            </label>
+            <input name="" value="3" id="" class="Accessibility_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">极难：</div>挖掘信息漏洞需要依靠具备非常丰富信息安全知识的人员、 掌握足够多的基础信息和业务信息、 使用
+              多种深度定制研发的专用设备及脚本, 漏洞信息及相关描述需要通过深度挖掘得到
+            </label>
+          </div>
+
+          <div class="metric Exploit_Difficulty_Level">
+            <h3 id="Exploit_Difficulty_Level_Heading" title="">漏洞利用难易程度等级</h3>
+            <input name="" value="0" id="" class="Exploit_Difficulty_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">容易：</div>可通过远程通信利用漏洞, 可以无限次实现利用漏洞触发形成危险事件或情形
+            </label>
+            <input name="" value="1" id="" class="Exploit_Difficulty_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">中：</div>可通过远程通信利用漏洞, 实现有限次数的利用触发以形成危险事件或情形
+            </label>
+            <input name="" value="2" id="" class="Exploit_Difficulty_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">难：</div>可通过本地或者物理接触的方式利用漏洞, 可以无限次实现利用漏洞触发形成危险事件或情形
+            </label>
+            <input name="" value="3" id="" class="Exploit_Difficulty_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">极难：</div>可通过本地或者物理接触的方式利用漏洞, 只能实现有限次数的利用触发以形成危险事件或情形
+            </label>
+          </div>
+
+        </div>
+
+        <div class="scoreRating1">
+          <p class="needBaseMetrics1">选择可获取性、利用难易程度,计算可能性</p>
+          <span id="baseMetricScore1"></span>
+          <span id="baseSeverity1"></span>
+        </div>
+
+        <div class="column column-right">
+          <div class="metric Risk_Severity_Level">
+            <h3 id="Risk_Severity_Level_Heading" title="">漏洞被利用风险严重性等级</h3>
+            <input name="" value="4" id="" class="Risk_Severity_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">高：</div>不可控, 可能严重危及人身、 财产安全
+            </label>
+            <input name="" value="3" id="" class="Risk_Severity_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">较高：</div>一般可控, 可能危及人身、 财产安全
+            </label>
+            <input name="" value="2" id="" class="Risk_Severity_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">中：</div>造成车辆行驶性能或功能影响, 但可控
+            </label>
+            <input name="" value="1" id="" class="Risk_Severity_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">较低：</div>对车辆性能或功能有部分影响, 但可控, 不影响车辆行驶
+            </label>
+            <input name="" value="0" id="" class="Risk_Severity_Level_input" type="radio">
+            <label for="" id="" title="">
+              <div class="level">低：</div>对车辆安全性无直接影响
+            </label>
+          </div>
+
+          <div class="scoreRating">
+            <p class="needBaseMetrics">计算可能性后,选择严重性,计算风险等级</p>
+            <span id="baseMetricScore"></span>
+            <span id="baseSeverity"></span>
+          </div>
+
+      </fieldset>
+    </form>
+
+  </div>
+
+
+
+  <div class="container">
+    <div class="left">
+      <table id="exploitMatrix">
+        <caption>漏洞被利用风险可能性评估矩阵</caption>
+        <thead>
+          <tr>
+            <th rowspan="2">漏洞可获取性</th>
+            <th colspan="4">漏洞利用难易程度</th>
+          </tr>
+          <tr>
+            <th>容易</th>
+            <th>中</th>
+            <th>难</th>
+            <th>极难</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>容易</th>
+            <td class="level-5">高</td>
+            <td class="level-4">较高</td>
+            <td class="level-3">中</td>
+            <td class="level-2">较低</td>
+          </tr>
+          <tr>
+            <th>中</th>
+            <td class="level-4">较高</td>
+            <td class="level-3">中</td>
+            <td class="level-2">较低</td>
+            <td class="level-1">低</td>
+          </tr>
+          <tr>
+            <th>难</th>
+            <td class="level-3">中</td>
+            <td class="level-2">较低</td>
+            <td class="level-2">较低</td>
+            <td class="level-1">低</td>
+          </tr>
+          <tr>
+            <th>极难</th>
+            <td class="level-2">较低</td>
+            <td class="level-1">低</td>
+            <td class="level-1">低</td>
+            <td class="level-1">低</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="exploitInfo"></div>
+    </div>
+
+    <div class="right">
+      <table id="riskTable">
+        <caption>风险评估矩阵</caption>
+        <thead>
+          <tr>
+            <th rowspan="2">可能性</th>
+            <th colspan="5">严重性</th>
+          </tr>
+          <tr>
+            <th>低</th>
+            <th>较低</th>
+            <th>中</th>
+            <th>较高</th>
+            <th>高</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>低</th>
+            <td class="level-1">1</td>
+            <td class="level-2">2</td>
+            <td class="level-2">2</td>
+            <td class="level-3">3</td>
+            <td class="level-3">3</td>
+          </tr>
+          <tr>
+            <th>较低</th>
+            <td class="level-2">2</td>
+            <td class="level-2">2</td>
+            <td class="level-3">3</td>
+            <td class="level-3">3</td>
+            <td class="level-4">4</td>
+          </tr>
+          <tr>
+            <th>中</th>
+            <td class="level-2">2</td>
+            <td class="level-3">3</td>
+            <td class="level-3">3</td>
+            <td class="level-4">4</td>
+            <td class="level-4">4</td>
+          </tr>
+          <tr>
+            <th>较高</th>
+            <td class="level-3">3</td>
+            <td class="level-3">3</td>
+            <td class="level-4">4</td>
+            <td class="level-4">4</td>
+            <td class="level-5">5</td>
+          </tr>
+          <tr>
+            <th>高</th>
+            <td class="level-3">3</td>
+            <td class="level-3">3</td>
+            <td class="level-4">4</td>
+            <td class="level-5">5</td>
+            <td class="level-5">5</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="riskInfo"></div>
+    </div>
+  </div>
+
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/tools.js"></script>
+  <script src="static/js/GB_T_45496_2025_calculator.js"></script>
+
+
+</body>
+
+</html>

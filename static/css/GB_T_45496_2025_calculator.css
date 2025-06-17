@@ -1,0 +1,254 @@
+#sub-content{
+    /* padding-top: 15px; */
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+h1{
+font-size: 2em;
+    margin: 0;
+    line-height: 1.4em;
+    padding: .7em 0 0 0;
+    color: #00400d;
+    font-weight: 600;
+    font-style: normal;
+}
+
+fieldset {
+    position: relative;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    border: 0;
+    padding: 1em 0;
+    display: block;
+}
+fieldset label{
+    background: #cccccc;
+    display: inline-block;
+    margin: 3px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 90%;
+    border-radius: 5px;
+    color: #666666;
+    border: 1px solid #999999;
+}
+
+fieldset legend {
+    background-color: #666666;
+    color: #ffffff;
+    float: none;
+    margin: 0;
+    width: 100%;
+    padding: 0.5em 0px;
+    text-indent: 1em;
+    font-size: 1.2rem;
+}
+
+fieldset div.metric { padding: 0; margin: 0.5em 0; }
+
+fieldset h3 {
+    font-size: 1.1rem;
+}
+
+fieldset input { display: none; width:auto; }
+
+
+fieldset div.column-left {
+    float: left;
+    height: auto;
+    max-width: 40%;
+    padding-left: 35px;
+}
+
+fieldset div.column-right {
+    float: right;
+    height: auto;
+    padding-right: 35px;
+
+}
+
+fieldset div.column {
+    width: 45%;
+    margin: 0 0 0 1em;
+}
+
+fieldset label:hover { background: #666666; color: #ffffff; border: 1px solid #666666 }
+fieldset input:checked + label { background: green; border: 1px solid green; color: #ffffff; }
+
+.scoreRating {
+    position: absolute;
+    top: -36px;
+    right: 0;
+    padding: 0 0.4em;
+    margin: 0 15px;
+    border: 2px solid #666666;
+    background: #dddddd;
+    font-size: 11px;
+    border-radius: 10px;
+    width: 100px;
+    height: auto;
+    line-height: 150%;
+    text-align: center;
+}
+
+.scoreRating.none,
+.scoreRating.low,
+.scoreRating.medium,
+.scoreRating.high,
+.scoreRating.critical { color:#ffffff;}
+
+.scoreRating.none     { background:#36AD5A; border:2px solid #36AD5A; }
+.scoreRating.low      { background:#89C562; border:2px solid #89C562; }
+.scoreRating.medium   { background:#ffcb0d; border:2px solid #ffcb0d; }
+.scoreRating.high     { background:#EA732F; border:2px solid #EA732F; }
+.scoreRating.critical { background:#EE2B2A; border:2px solid #EE2B2A; }
+.scoreRating span     { font-size: 150%; font-weight: bold; width: 100%; }
+.needBaseMetrics      { text-align:center; line-height:100%; padding-top:5px; font-size:15px; }
+
+#baseMetricScore {
+    display: block;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: normal;
+    margin-top: 4px;
+}
+
+#baseSeverity {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    display: block;
+}
+
+
+
+/* for GB/T 45496—2025 */
+.scoreRating1 {
+    position: absolute;
+    top: -36px;
+    /* right: 1; */
+    padding: 0 0.4em;
+    margin: 0 42%;
+    border: 2px solid #666666;
+    background: #dddddd;
+    font-size: 11px;
+    border-radius: 10px;
+    width: 100px;
+    height: auto;
+    line-height: 150%;
+    text-align: center;
+}
+
+.scoreRating1.none,
+.scoreRating1.low,
+.scoreRating1.medium,
+.scoreRating1.high,
+.scoreRating1.critical { color:#ffffff;}
+
+.scoreRating1.none     { background:#36AD5A; border:2px solid #36AD5A; }
+.scoreRating1.low      { background:#89C562; border:2px solid #89C562; }
+.scoreRating1.medium   { background:#ffcb0d; border:2px solid #ffcb0d; }
+.scoreRating1.high     { background:#EA732F; border:2px solid #EA732F; }
+.scoreRating1.critical { background:#EE2B2A; border:2px solid #EE2B2A; }
+.scoreRating1 span     { font-size: 150%; font-weight: bold; width: 100%; }
+.needBaseMetrics      { text-align:center; line-height:100%; padding-top:5px; font-size:15px; }
+
+#baseMetricScore1 {
+    display: block;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: normal;
+    margin-top: 4px;
+}
+
+#baseSeverity1 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.level {
+    font-weight: bold;
+    display: contents;
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between; /* 左右分布 */
+    align-items: flex-start;        /* 可选：顶部对齐 */
+    padding-top: 23px;
+    padding-bottom: 5%;
+}
+
+.left, .right {
+    width: 45%; 
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+caption {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    caption-side: top; 
+    text-align: center;
+}
+
+th, td {
+    padding: 14px 18px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    border-radius: 0;
+}
+
+th {
+    background-color: #f0f2f5;
+    font-weight: 600;
+}
+
+td {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.level-1 { background-color: #8fd19e; }
+.level-2 { background-color: #c6e48b; }
+.level-3 { background-color: #ffe66d; }
+.level-4 { background-color: #ff9f43; }
+.level-5 { background-color: #ff6b6b; color: white; }
+
+/* 等级颜色 */
+td[data-level="高"]     { background-color: #e74c3c; color: white; }
+td[data-level="较高"]   { background-color: #f39c12; color: white; }
+td[data-level="中"]     { background-color: #f1c40f; color: black; }
+td[data-level="较低"]   { background-color: #2ecc71; color: white; }
+td[data-level="低"]     { background-color: #b9f6ca; color: black; }
+
+td:hover {
+    filter: brightness(1.1);
+    transform: scale(1.03);
+}
+
+.selected {
+    box-shadow: 0 0 0 3px #007bff inset;
+    outline: none;
+}
+
+#RiskInfo,#exploitInfo {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
