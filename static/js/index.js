@@ -47,6 +47,12 @@ function load_page(){
         return
     }
     
+        if(option=="hexview"){
+        $("#hexview").click();
+        document.getElementById("content").innerHTML = '<iframe src="hexview.html" style="width: 100%;height: 100%;"></iframe>'
+        return
+    }
+
     // 都匹配不上，则到默认主页
     if(option=="home" || option ==""){
         $("#home").click();

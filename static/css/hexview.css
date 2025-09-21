@@ -1,0 +1,213 @@
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f4f7f9;
+    color: #333;
+}
+
+/* body {
+    padding-top: 4%;
+} */
+h1 {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    height: 88vh;
+    gap: 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.left-panel,
+.right-panel {
+    overflow: auto;
+    padding: 10px;
+    background: #fff;
+}
+
+.left-panel {
+    width: 50%;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    width: 50%;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+#drag-bar {
+    width: 5px;
+    cursor: col-resize;
+    background: #ccc;
+}
+
+#file-drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+#file-drop-area.dragover {
+    border-color: #007bff;
+    background: #e9f5ff;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+#add-files-btn {
+    background: #007bff;
+    width: 100px
+}
+
+#add-files-btn:hover {
+    background: #0056b3;
+}
+
+#clear-btn {
+    background: #dc3545;
+    width: 100px
+}
+
+#clear-btn:hover {
+    background: #c82333;
+}
+
+#block-table-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: auto;
+    flex-grow: 1;
+}
+
+#block-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#block-table th,
+#block-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    position: relative;
+}
+
+#block-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#block-table tr:hover {
+    background: #f1f1f1;
+}
+
+.download-btn {
+    background: #28a745;
+    padding: 8px 12px;
+    font-size: 12px;
+    min-width: 60px;
+}
+
+.download-btn:hover {
+    background: #218838;
+}
+
+.search-section {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.search-section input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-section button {
+    background: #007bff;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.search-section button:hover {
+    background: #0056b3;
+}
+
+#hexdump-output {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre;
+    overflow: auto;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
+    background: #fcfcfc;
+    border-radius: 4px;
+    flex-grow: 1;
+}
+
+.hexdump-line {
+    display: flex;
+    line-height: 1.5;
+    gap: 10px;
+}
+
+.hexdump-address {
+    color: #007bff;
+    font-weight: bold;
+    min-width: 100px;
+}
+
+.hexdump-hex {
+    color: #333;
+    min-width: 200px;
+}
+
+.hexdump-ascii {
+    color: #666;
+}
+
+.highlight {
+    background: #fffacd;
+    font-weight: bold;
+    color: #d2691e;
+}
+
+.sort-indicator {
+    margin-left: 4px;
+    font-size: 12px;
+}
