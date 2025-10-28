@@ -1,58 +1,63 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="static/css/polipop.core.min.css"/>
-        <link rel="stylesheet" href="static/css/polipop.default.min.css"/>
-        <link href="static/css/content.css" rel="stylesheet" />
-        <link href="static/css/hexview.css" rel="stylesheet" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="static/images/hex.png"/>
+    
+    <link rel="stylesheet" href="static/css/polipop.core.min.css"/>
+    <link rel="stylesheet" href="static/css/polipop.default.min.css"/>
+    <link href="static/css/content.css" rel="stylesheet"/>
+    <link href="static/css/hexview.css" rel="stylesheet"/>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ECU Firmware Hex Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex View</title>
+</head>
 
-    </head>
+<body>
+    <h1>Hex View</h1>
 
-    <body>
-
-        <h1>ECU Firmware Hex Viewer</h1>
-
-        <div class="container">
-            <div class="left-panel" id="left-panel">
-                <div id="file-drop-area">
-                    <p>Drag and drop files here</p>
-                    <p>or</p>
-                    <input type="file" id="file-input" style="display:none;" multiple accept=".hex,.s19">
+    <div class="main-wrapper">
+        <div class="left-panel panel" id="left-panel">
+            <div class="drop-area" id="file-drop-area">
+                <p>📂 Drag and drop files here</p>
+                <p style="font-size: 0.9em; color: #aaa;"> OR </p>
+                <input type="file" id="file-input" style="display:none;" multiple accept=".hex,.s19">
+                <div class="button-group">
                     <button id="add-files-btn">Add File</button>
                     <button id="clear-btn">Clean</button>
                 </div>
-                <div id="block-table-container">
-                    <table id="block-table">
-                        <thead>
-                            <tr>
-                                <th data-sort="fileName">Filename <span class="sort-indicator"></span></th>
-                                <th data-sort="startAddress">Starts at <span class="sort-indicator"></span></th>
-                                <th data-sort="endAddress">Ends at <span class="sort-indicator"></span></th>
-                                <th data-sort="length">Length <span class="sort-indicator"></span></th>
-                                <th>BIN</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
             </div>
-            <div id="drag-bar"></div>
-            <div class="right-panel" id="right-panel">
-                <div class="search-section">
-                    <input type="text" id="search-address-input" placeholder="Enter hex address (e.g.: 0x80000000)">
-                    <button id="search-btn">Search</button>
-                </div>
-                <div id="hexdump-output">Please load the file(Intel Hex/S19) and enter the address to search...</div>
+            <div class="table-container">
+                <table class="block-table" id="block-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="fileName">File <span class="sort-indicator"></span></th>
+                            <th data-sort="startAddress">Starts at <span class="sort-indicator"></span></th>
+                            <th data-sort="endAddress">Ends at <span class="sort-indicator"></span></th>
+                            <th data-sort="length">Length <span class="sort-indicator"></span></th>
+                            <th>BIN</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </div>
         </div>
-    </body>
+        <div class="drag-bar" id="drag-bar"></div>
+        <div class="right-panel panel" id="right-panel">
+            <div class="search-section">
+                <input type="text" id="search-address-input" placeholder="Enter hex address (e.g.: 0x80000000)">
+                <button id="search-btn">🔍 Search</button>
+            </div>
+            <div id="hexdump-output">
+                Load the file(Intel Hex/S19) and enter the address to search...
+            </div>
+        </div>
+    </div>
 
-    <script src="static/js/polipop.min.js"></script>
-    <script src="static/js/hexview.js"></script>
-    <script src="static/js/pop-notify.js"></script>
+</body>
+
+<script src="static/js/polipop.min.js"></script>
+<script src="static/js/hexview.js"></script>
+<script src="static/js/pop-notify.js"></script>
 
 </html>

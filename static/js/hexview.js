@@ -1,17 +1,19 @@
-/* 拖拽分割条 */
 const dragBar = document.getElementById('drag-bar');
 const leftPanel = document.getElementById('left-panel');
 const rightPanel = document.getElementById('right-panel');
+const mainWrapper = document.querySelector('.main-wrapper');
+
 let isDragging = false;
 dragBar.addEventListener('mousedown', () => { isDragging = true; document.body.style.cursor = 'col-resize'; });
 document.addEventListener('mouseup', () => { isDragging = false; document.body.style.cursor = 'default'; });
 document.addEventListener('mousemove', e => {
     if (!isDragging) return;
-    const containerWidth = dragBar.parentElement.offsetWidth;
-    let newLeftWidth = e.clientX - dragBar.parentElement.offsetLeft;
-    newLeftWidth = Math.max(100, Math.min(containerWidth - 100, newLeftWidth));
-    leftPanel.style.width = newLeftWidth + 'px';
-    rightPanel.style.width = (containerWidth - newLeftWidth - 5) + 'px';
+    e.preventDefault();
+    const rect = mainWrapper.getBoundingClientRect();
+    let newLeftWidth = e.clientX - rect.left;
+    newLeftWidth = Math.max(400, Math.min(rect.width - 400 - dragBar.offsetWidth - 15, newLeftWidth));
+    leftPanel.style.flexBasis = `${newLeftWidth}px`;
+    rightPanel.style.flexBasis = `${rect.width - newLeftWidth - dragBar.offsetWidth - 15}px`;
 });
 
 /* 文件解析及功能 */
@@ -35,7 +37,7 @@ addFilesBtn.addEventListener('click', () => fileInput.click());
 clearBtn.addEventListener('click', () => {
     combinedBlocks = [];
     blockTableBody.innerHTML = '';
-    hexdumpOutput.textContent = 'All data has been cleared. Please add a new file...';
+    hexdumpOutput.innerHTML = `All data has been cleared. Please add a new file...`;
 });
 fileInput.addEventListener('change', e => { addFiles(e.target.files); fileInput.value = ''; });
 searchBtn.addEventListener('click', handleSearch);
@@ -43,14 +45,14 @@ searchBtn.addEventListener('click', handleSearch);
 /* 文件解析 */
 async function addFiles(files) {
     if (files.length + combinedBlocks.length > MAX_FILES) {
-        alert(`A maximum of ${MAX_FILES} files can be loaded.`);
+        alert(`最多只能加载 ${MAX_FILES} 个文件`);
         return;
     }
     const newBlocks = [];
     await Promise.all(Array.from(files).map(f => processFile(f, newBlocks)));
     combinedBlocks = mergeSortedBlockLists(combinedBlocks, newBlocks);
     if (combinedBlocks.length > 0) renderTable();
-    else hexdumpOutput.textContent = 'No valid data parsed. Please check the file format.';
+    else hexdumpOutput.innerHTML = 'No valid data parsed. Please check the file format.';
 }
 
 async function processFile(file, targetBlocks) {
@@ -65,7 +67,7 @@ async function processFile(file, targetBlocks) {
                 if (fileExt === 'hex') blocks = parseHex(content);
                 else if (fileExt === 's19') blocks = parseS19(content);
                 blocks.forEach(block => { block.fileName = fileName; targetBlocks.push(block); });
-            } catch (err) { console.error(`Parse file ${fileName} error:`, err); }
+            } catch (err) { console.error(`Parse ${fileName} error:`, err); }
             resolve();
         };
         reader.readAsText(file);
@@ -98,81 +100,83 @@ function parseHex(content) {
     return blocks;
 }
 
+
 function parseS19(content) {
-const blocks = [];
-const lines = content.split(/\r?\n/);
+    const blocks = [];
+    const lines = content.split(/\r?\n/);
 
-if (lines[0].startsWith(':')) {
-// Intel HEX
-return parseHex(content);
-}
-
-for (let raw of lines) {
-const line = raw.trim();
-if (!line || line[0] !== 'S') continue;
-
-const typeChar = line[1];
-if (!(typeChar === '1' || typeChar === '2' || typeChar === '3')) continue;
-
-const byteCount = parseInt(line.substr(2, 2), 16);
-if (isNaN(byteCount) || byteCount < 3) continue;
-
-// 地址字节数
-const addrBytes = (typeChar === '1') ? 2 : (typeChar === '2' ? 3 : 4);
-const addrHex = line.substr(4, addrBytes * 2);
-const start = parseInt(addrHex, 16);
-if (isNaN(start)) continue;
-
-// 数据字节数
-const dataBytes = byteCount - addrBytes - 1;
-const dataHex = line.substr(4 + addrBytes * 2, dataBytes * 2);
-
-const data = new Uint8Array(dataBytes);
-for (let i = 0; i < dataBytes; i++) {
-    data[i] = parseInt(dataHex.substr(i * 2, 2), 16);
-}
-if (data.length === 0) continue;
-
-const end = start + data.length - 1;
-
-// 合并逻辑：只记录 chunks，最后再拼接
-if (blocks.length > 0) {
-    const last = blocks[blocks.length - 1];
-    if (last.endAddress + 1 === start) {
-        last.chunks.push(data);
-        last.endAddress = end;
-        last.length += data.length;
-        continue;
+    if (lines[0].startsWith(':')) {
+        // Intel HEX
+        return parseHex(content);
     }
-}
 
-// 新建 block
-blocks.push({
-    startAddress: start,
-    endAddress: end,
-    length: data.length,
-    chunks: [data]  // 暂存
-});
-}
+    for (let raw of lines) {
+        const line = raw.trim();
+        if (!line || line[0] !== 'S') continue;
 
-// ✅ 最后统一合并 chunks → Uint8Array
-for (const block of blocks) {
-if (block.chunks.length === 1) {
-    block.data = block.chunks[0];
-} else {
-    const merged = new Uint8Array(block.length);
-    let offset = 0;
-    for (const chunk of block.chunks) {
-        merged.set(chunk, offset);
-        offset += chunk.length;
+        const typeChar = line[1];
+        if (!(typeChar === '1' || typeChar === '2' || typeChar === '3')) continue;
+
+        const byteCount = parseInt(line.substr(2, 2), 16);
+        if (isNaN(byteCount) || byteCount < 3) continue;
+
+        // 地址字节数
+        const addrBytes = (typeChar === '1') ? 2 : (typeChar === '2' ? 3 : 4);
+        const addrHex = line.substr(4, addrBytes * 2);
+        const start = parseInt(addrHex, 16);
+        if (isNaN(start)) continue;
+
+        // 数据字节数
+        const dataBytes = byteCount - addrBytes - 1;
+        const dataHex = line.substr(4 + addrBytes * 2, dataBytes * 2);
+
+        const data = new Uint8Array(dataBytes);
+        for (let i = 0; i < dataBytes; i++) {
+            data[i] = parseInt(dataHex.substr(i * 2, 2), 16);
+        }
+        if (data.length === 0) continue;
+
+        const end = start + data.length - 1;
+
+        // 合并逻辑：只记录 chunks，最后再拼接
+        if (blocks.length > 0) {
+            const last = blocks[blocks.length - 1];
+            if (last.endAddress + 1 === start) {
+                last.chunks.push(data);
+                last.endAddress = end;
+                last.length += data.length;
+                continue;
+            }
+        }
+
+        // 新建 block
+        blocks.push({
+            startAddress: start,
+            endAddress: end,
+            length: data.length,
+            chunks: [data]  // 暂存
+        });
     }
-    block.data = merged;
-}
-delete block.chunks;
+
+    // ✅ 最后统一合并 chunks → Uint8Array
+    for (const block of blocks) {
+        if (block.chunks.length === 1) {
+            block.data = block.chunks[0];
+        } else {
+            const merged = new Uint8Array(block.length);
+            let offset = 0;
+            for (const chunk of block.chunks) {
+                merged.set(chunk, offset);
+                offset += chunk.length;
+            }
+            block.data = merged;
+        }
+        delete block.chunks;
+    }
+
+    return blocks;
 }
 
-return blocks;
-}
 
 function mergeSortedBlockLists(list1, list2) {
     const map = new Map();
@@ -199,7 +203,6 @@ function mergeSortedBlockLists(list1, list2) {
 let currentSortField = 'startAddress';
 let currentSortAsc = true;
 document.querySelectorAll('#block-table th[data-sort]').forEach(th => {
-    th.style.cursor = 'pointer';
     th.addEventListener('click', () => {
         const field = th.getAttribute('data-sort');
         if (currentSortField === field) {
@@ -213,15 +216,6 @@ document.querySelectorAll('#block-table th[data-sort]').forEach(th => {
 });
 
 // 初始化排序箭头
-document.querySelectorAll('#block-table th[data-sort]').forEach(th => {
-    if (!th.querySelector('.sort-indicator')) {
-        const span = document.createElement('span');
-        span.className = 'sort-indicator';
-        span.style.marginLeft = '4px';
-        th.appendChild(span);
-    }
-});
-
 function updateSortIndicators() {
     document.querySelectorAll('#block-table th[data-sort]').forEach(th => {
         const indicator = th.querySelector('.sort-indicator');
@@ -286,7 +280,7 @@ function showHexdump(block, highlightAddress = null) {
     const displayLength = Math.min(MAX_HEX_SIZE, endAddress - startAddress + 1);
 
     const highlightPositions = [];
-    for (let addr = startAddress; addr <= startAddress + displayLength - 1; addr += 16) {
+    for (let addr = startAddress; addr < startAddress + displayLength; addr += 16) {
         const lineDiv = document.createElement('div');
         lineDiv.className = 'hexdump-line';
         const addressHex = addr.toString(16).toUpperCase().padStart(8, '0');
@@ -327,19 +321,21 @@ function showHexdump(block, highlightAddress = null) {
 /* 搜索 */
 function handleSearch() {
     const addressInput = searchAddressInput.value.trim();
-    if (!addressInput) { hexdumpOutput.textContent = 'Please enter an address to search.'; return; }
+    if (!addressInput) { hexdumpOutput.innerHTML = 'Enter an address to search.'; return; }
     const searchAddress = parseInt(addressInput, 16);
-    if (isNaN(searchAddress)) { hexdumpOutput.textContent = 'The address format is incorrect. Please enter a valid hexadecimal address.'; return; }
+    if (isNaN(searchAddress)) { hexdumpOutput.innerHTML = 'The address format is incorrect. Please enter a valid hexadecimal address.'; return; }
     const foundBlock = combinedBlocks.find(block => searchAddress >= block.startAddress && searchAddress <= block.endAddress);
-    if (!foundBlock) { hexdumpOutput.textContent = `The address was not found in the memory map. 0x${searchAddress.toString(16).toUpperCase()}。`; return; }
+    if (!foundBlock) { hexdumpOutput.innerHTML = `The address was not found in the memory map. 0x${searchAddress.toString(16).toUpperCase()}.`; return; }
 
     var addressInFile = `Address 0x${searchAddress.toString(16).toUpperCase()} in file: ${foundBlock.fileName}`;
     console.log(addressInFile);
+
     var type = "success";
     var title = "Success";
-    pop_notify(type,title,addressInFile);
+    pop_notify(type, title, addressInFile);
 
     showHexdump(foundBlock, searchAddress);
+    
 }
 
 
@@ -349,4 +345,3 @@ searchAddressInput.addEventListener('keydown', function (e) {
         handleSearch();
     }
 });
-

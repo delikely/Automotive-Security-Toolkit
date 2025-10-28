@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="static/images/tool.png">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="static/css/bootstrap-table.min.css" rel="stylesheet">
+
+    <link href="static/css/content.css" rel="stylesheet" />
+    <link href="static/css/content-common.css" rel="stylesheet">
+    <link href="static/css/XCP.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="sub-content" class="center">
+        <div id="info">
+            <h1 id="main_title"><a href="https://www.asam.net/standards/detail/mcd-1-xcp/" target="_blank">XCP</a>
+            </h1>
+            <h2 id="sub_title">Universal Measurement and Calibration Protocol</h2>
+            <div id="introduction">
+
+            </div>
+        </div>
+
+        <!-- COMMAND CODES -->
+        <div class="table-block">
+            <div>
+                <table id="CMD-data-table" data-toolbar="#data-toolbar">
+                </table>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <button class="accordion_content center_text" type="button">COMMAND CODES</button>
+            <div class="panel_content">
+                <br>
+                <p>
+                    An attempt to execute a not implemented optional command will return ERR_CMD_UNKNOWN and does not have any effect.<br/>
+                    This lets the master device detect not implemented optional commands easily.
+                </p>
+            </div>
+        </div>
+
+        <!-- ERROR CODES -->
+        <div class="table-block">
+            <div>
+                <table id="ERROR-data-table" data-toolbar="#data-toolbar">
+                </table>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <button class="accordion_content center_text" type="button">ERROR CODES</button>
+            <div class="panel_content">
+                <br>
+                <p>
+                    The Error packet codes in the table below can be sent as an Error packet with PID 0xFE as an answer to a CMD if the command has not been successfully executed.
+                </p>
+            </div>
+        </div>
+
+        <!-- EVENT CODES -->
+        <div class="table-block">
+            <div>
+                <table id="EVENT-data-table" data-toolbar="#data-toolbar">
+                </table>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <button class="accordion_content center_text" type="button">EVENT CODES</button>
+            <div class="panel_content">
+                <br>
+                <p>
+                    The Event packet codes in the table below may be sent as an asynchronous packet with PID 0xFD. <br/>
+                    The implementation is optional. Event packets sent from the slave device to the master device are not acknowledged, therefore the transmission is not guaranteed.
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/bootstrap-table.min.js"></script>
+
+<script src="static/js/tools.js"></script>
+
+<script src="static/js/XCP.js"></script>
+
+</html>

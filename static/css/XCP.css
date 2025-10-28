@@ -1,0 +1,17 @@
+
+#main_title{
+    display: inline-block;
+    font-size: 1.75rem;
+}
+
+#sub-content{
+    overflow: visible;
+}
+
+.bootstrap-table{
+    height: 300px;
+}
+
+.table-block{
+    padding-bottom: 50px;
+}

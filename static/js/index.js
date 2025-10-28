@@ -29,9 +29,9 @@ function load_page(){
         return
     }
 
-    if(option=="UDS_NRC"){
-        $("#UDS_NRC").click();
-        document.getElementById("content").innerHTML = '<iframe src="UDS_NRC.html" style="width: 100%;height: 100%;"></iframe>'
+    if(option=="XCP"){
+        $("#XCP").click();
+        document.getElementById("content").innerHTML = '<iframe src="XCP.html" style="width: 100%;height: 100%;"></iframe>'
         return
     }
 

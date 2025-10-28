@@ -1,0 +1,566 @@
+{
+    "EVENT CODES": [
+        {
+            "Event": "EV_RESUME_MODE",
+            "Code": "0x00",
+            "Description": "Slave starting in RESUME mode",
+            "Severity": "S0"
+        },
+        {
+            "Event": "EV_CLEAR_DAQ",
+            "Code": "0x01",
+            "Description": "The DAQ configuration in nonvolatile memory has been cleared",
+            "Severity": "S0"
+        },
+        {
+            "Event": "EV_STORE_DAQ",
+            "Code": "0x02",
+            "Description": "The DAQ configuration has been stored into non-volatile memory",
+            "Severity": "S0"
+        },
+        {
+            "Event": "EV_STORE_CAL",
+            "Code": "0x03",
+            "Description": "The calibration data has been stored into non-volatile memory",
+            "Severity": "S0"
+        },
+        {
+            "Event": "EV_CMD_PENDING",
+            "Code": "0x05",
+            "Description": "Slave requesting to restart timeout",
+            "Severity": "S1"
+        },
+        {
+            "Event": "EV_DAQ_OVERLOAD",
+            "Code": "0x06",
+            "Description": "DAQ processor overload",
+            "Severity": "S1"
+        },
+        {
+            "Event": "EV_SESSION_TERMINATED",
+            "Code": "0x07",
+            "Description": "Session terminated by slave device",
+            "Severity": "S3"
+        },
+        {
+            "Event": "EV_TIME_SYNC",
+            "Code": "0x08",
+            "Description": "Transfer of externally triggered timestamp",
+            "Severity": "S0"
+        },
+        {
+            "Event": "EV_STIM_TIMEOUT",
+            "Code": "0x09",
+            "Description": "Indication of a STIM timeout",
+            "Severity": "S0–S3"
+        },
+        {
+            "Event": "EV_SLEEP",
+            "Code": "0x0A",
+            "Description": "Slave entering SLEEP mode",
+            "Severity": "S1"
+        },
+        {
+            "Event": "EV_WAKE_UP",
+            "Code": "0x0B",
+            "Description": "Slave leaving SLEEP mode",
+            "Severity": "S1"
+        },
+        {
+            "Event": "EV_USER",
+            "Code": "0xFE",
+            "Description": "User-defined event",
+            "Severity": "S0"
+        },
+        {
+            "Event": "EV_TRANSPORT",
+            "Code": "0xFF",
+            "Description": "Transport layer specific event (see Part 3)",
+            "Severity": "Reference"
+        }
+    ],
+    "SERVICE REQUEST CODES": [
+        {
+            "ServiceRequest": "SERV_RESET",
+            "Code": "0x00",
+            "Description": "Slave requesting to be reset"
+        },
+        {
+            "ServiceRequest": "SERV_TEXT",
+            "Code": "0x01",
+            "Description": "Slave transferring a byte stream of plain ASCII text. The line separator is LF or CR/LF. The text can be transferred in consecutive packets, with the end indicated by the last packet containing a null-terminated string"
+        }
+    ],
+    "COMMAND CODES": [
+        {
+            "Command": "CONNECT",
+            "Code": "0xFF",
+            "IsOptional": false,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "DISCONNECT",
+            "Code": "0xFE",
+            "IsOptional": false,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "GET_STATUS",
+            "Code": "0xFD",
+            "IsOptional": false,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "SYNCH",
+            "Code": "0xFC",
+            "IsOptional": false,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "GET_COMM_MODE_INFO",
+            "Code": "0xFB",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "GET_ID",
+            "Code": "0xFA",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "SET_REQUEST",
+            "Code": "0xF9",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "GET_SEED",
+            "Code": "0xF8",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "UNLOCK",
+            "Code": "0xF7",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "SET_MTA",
+            "Code": "0xF6",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "UPLOAD",
+            "Code": "0xF5",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "SHORT_UPLOAD",
+            "Code": "0xF4",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "BUILD_CHECKSUM",
+            "Code": "0xF3",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "TRANSPORT_LAYER_CMD",
+            "Code": "0xF2",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "USER_CMD",
+            "Code": "0xF1",
+            "IsOptional": true,
+            "Type": "STANDARD COMMANDS (STD)"
+        },
+        {
+            "Command": "DOWNLOAD",
+            "Code": "0xF0",
+            "IsOptional": false,
+            "Type": "CALIBRATION COMMANDS (CAL)"
+        },
+        {
+            "Command": "DOWNLOAD_NEXT",
+            "Code": "0xEF",
+            "IsOptional": true,
+            "Type": "CALIBRATION COMMANDS (CAL)"
+        },
+        {
+            "Command": "DOWNLOAD_MAX",
+            "Code": "0xEE",
+            "IsOptional": true,
+            "Type": "CALIBRATION COMMANDS (CAL)"
+        },
+        {
+            "Command": "SHORT_DOWNLOAD",
+            "Code": "0xED",
+            "IsOptional": true,
+            "Type": "CALIBRATION COMMANDS (CAL)"
+        },
+        {
+            "Command": "MODIFY_BITS",
+            "Code": "0xEC",
+            "IsOptional": true,
+            "Type": "CALIBRATION COMMANDS (CAL)"
+        },
+        {
+            "Command": "SET_CAL_PAGE",
+            "Code": "0xEB",
+            "IsOptional": true,
+            "Type": "PAGE SWITCHING COMMANDS (PAG)"
+        },
+        {
+            "Command": "GET_CAL_PAGE",
+            "Code": "0xEA",
+            "IsOptional": true,
+            "Type": "PAGE SWITCHING COMMANDS (PAG)"
+        },
+        {
+            "Command": "GET_PAG_PROCESSOR_INFO",
+            "Code": "0xE9",
+            "IsOptional": true,
+            "Type": "PAGE SWITCHING COMMANDS (PAG)"
+        },
+        {
+            "Command": "GET_SEGMENT_INFO",
+            "Code": "0xE8",
+            "IsOptional": true,
+            "Type": "PAGE SWITCHING COMMANDS (PAG)"
+        },
+        {
+            "Command": "GET_PAGE_INFO",
+            "Code": "0xE7",
+            "IsOptional": true,
+            "Type": "PAGE SWITCHING COMMANDS (PAG)"
+        },
+        {
+            "Command": "SET_SEGMENT_MODE",
+            "Code": "0xE6",
+            "IsOptional": true,
+            "Type": "PAGE SWITCHING COMMANDS (PAG)"
+        },
+        {
+            "Command": "GET_SEGMENT_MODE",
+            "Code": "0xE5",
+            "IsOptional": true,
+            "Type": "PAGE SWITCHING COMMANDS (PAG)"
+        },
+        {
+            "Command": "COPY_CAL_PAGE",
+            "Code": "0xE4",
+            "IsOptional": true,
+            "Type": "PAGE SWITCHING COMMANDS (PAG)"
+        },
+        {
+            "Command": "CLEAR_DAQ_LIST",
+            "Code": "0xE3",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "SET_DAQ_PTR",
+            "Code": "0xE2",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "WRITE_DAQ",
+            "Code": "0xE1",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "SET_DAQ_LIST_MODE",
+            "Code": "0xE0",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "GET_DAQ_LIST_MODE",
+            "Code": "0xDF",
+            "IsOptional": true,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "START_STOP_DAQ_LIST",
+            "Code": "0xDE",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "START_STOP_SYNCH",
+            "Code": "0xDD",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "GET_DAQ_CLOCK",
+            "Code": "0xDC",
+            "IsOptional": true,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "READ_DAQ",
+            "Code": "0xDB",
+            "IsOptional": true,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "GET_DAQ_PROCESSOR_INFO",
+            "Code": "0xDA",
+            "IsOptional": true,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "GET_DAQ_RESOLUTION_INFO",
+            "Code": "0xD9",
+            "IsOptional": true,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "GET_DAQ_LIST_INFO",
+            "Code": "0xD8",
+            "IsOptional": true,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "GET_DAQ_EVENT_INFO",
+            "Code": "0xD7",
+            "IsOptional": true,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "FREE_DAQ",
+            "Code": "0xD6",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "ALLOC_DAQ",
+            "Code": "0xD5",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "ALLOC_ODT",
+            "Code": "0xD4",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "ALLOC_ODT_ENTRY",
+            "Code": "0xD3",
+            "IsOptional": false,
+            "Type": "DATA ACQUISITION AND STIMULATION COMMANDS (DAQ)"
+        },
+        {
+            "Command": "PROGRAM_START",
+            "Code": "0xD2",
+            "IsOptional": false,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "PROGRAM_CLEAR",
+            "Code": "0xD1",
+            "IsOptional": false,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "PROGRAM",
+            "Code": "0xD0",
+            "IsOptional": false,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "PROGRAM_RESET",
+            "Code": "0xCF",
+            "IsOptional": false,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "GET_PGM_PROCESSOR_INFO",
+            "Code": "0xCE",
+            "IsOptional": true,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "GET_SECTOR_INFO",
+            "Code": "0xCD",
+            "IsOptional": true,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "PROGRAM_PREPARE",
+            "Code": "0xCC",
+            "IsOptional": true,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "PROGRAM_FORMAT",
+            "Code": "0xCB",
+            "IsOptional": true,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "PROGRAM_NEXT",
+            "Code": "0xCA",
+            "IsOptional": true,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "PROGRAM_MAX",
+            "Code": "0xC9",
+            "IsOptional": true,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        },
+        {
+            "Command": "PROGRAM_VERIFY",
+            "Code": "0xC8",
+            "IsOptional": true,
+            "Type": "NON-VOLATILE MEMORY PROGRAMMING COMMANDS (PGM)"
+        }
+    ],
+    "ERROR CODES": [
+        {
+            "Error": "ERR_CMD_SYNCH",
+            "Code": "0x00",
+            "Description": "Command processor synchronization",
+            "Severity": "S0"
+        },
+        {
+            "Error": "ERR_CMD_BUSY",
+            "Code": "0x10",
+            "Description": "Command was not executed",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_DAQ_ACTIVE",
+            "Code": "0x11",
+            "Description": "Command rejected because DAQ is running",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_PGM_ACTIVE",
+            "Code": "0x12",
+            "Description": "Command rejected because PGM is running",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_CMD_UNKNOWN",
+            "Code": "0x20",
+            "Description": "Unknown command or not implemented optional command",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_CMD_SYNTAX",
+            "Code": "0x21",
+            "Description": "Command syntax invalid",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_OUT_OF_RANGE",
+            "Code": "0x22",
+            "Description": "Command syntax valid but command parameter(s) out of range",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_WRITE_PROTECTED",
+            "Code": "0x23",
+            "Description": "The memory location is write protected",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_ACCESS_DENIED",
+            "Code": "0x24",
+            "Description": "The memory location is not accessible",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_ACCESS_LOCKED",
+            "Code": "0x25",
+            "Description": "Access denied, Seed & Key is required",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_PAGE_NOT_VALID",
+            "Code": "0x26",
+            "Description": "Selected page not available",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_MODE_NOT_VALID",
+            "Code": "0x27",
+            "Description": "Selected page mode not available",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_SEGMENT_NOT_VALID",
+            "Code": "0x28",
+            "Description": "Selected segment not valid",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_SEQUENCE",
+            "Code": "0x29",
+            "Description": "Sequence error",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_DAQ_CONFIG",
+            "Code": "0x2A",
+            "Description": "DAQ configuration not valid",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_MEMORY_OVERFLOW",
+            "Code": "0x30",
+            "Description": "Memory overflow error",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_GENERIC",
+            "Code": "0x31",
+            "Description": "Generic error",
+            "Severity": "S2"
+        },
+        {
+            "Error": "ERR_VERIFY",
+            "Code": "0x32",
+            "Description": "The slave internal program verify routine detects an error",
+            "Severity": "S3"
+        },
+        {
+            "Error": "ERR_RESOURCE_TEMPORARY_NOT_ACCESSIBLE",
+            "Code": "0x33",
+            "Description": "Access to the requested resource is temporarily not possible",
+            "Severity": "S2"
+        }
+    ],
+    "SEVERITY_LEVELS": [
+    {
+        "Severity": "S0",
+        "Description": "Information"
+    },
+    {
+        "Severity": "S1",
+        "Description": "Warning / Request"
+    },
+    {
+        "Severity": "S2",
+        "Description": "Resolvable Error"
+    },
+    {
+        "Severity": "S3",
+        "Description": "Fatal Error"
+    }
+]
+}
