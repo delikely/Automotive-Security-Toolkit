@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="static/images/web.png" />
+    <link href="static/css/content.css" rel="stylesheet" />
+    <link href="static/css/http-scan.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser-based Web Scanner</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="card">
+
+            <h1>Browser-based Web Scannerer</h1>
+            <div class="subtitle">HTTP/HTTPS Service Discovery</div>
+
+            <div class="control-row">
+                <div class="form-group">
+                    <label>IP Range</label>
+                    <input id="ipInput" type="text" value="127.0.0.1"
+                        placeholder="127.0.0.1 | 192.168.1.10-192.168.1.50 | 192.168.1.0/24">
+                </div>
+
+                <div class="form-group">
+                    <label>Ports</label>
+                    <input id="portInput" type="text" value="80,443,8000-8100" placeholder="80,443,8000-8100">
+                </div>
+
+                <div class="protocols">
+                    <label><input type="checkbox" id="httpChk" checked> HTTP</label>
+                    <label><input type="checkbox" id="httpsChk"> HTTPS</label>
+                </div>
+
+                <div class="buttons">
+                    <button id="controlBtn" class="btn-start">Start</button>
+                    <button id="stopBtn" class="btn-stop" disabled>Stop</button>
+                </div>
+            </div>
+
+            <div class="status">
+                <div id="progressText">Idle</div>
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="time" id="timeText">Elapsed: 00:00:00 · ETA: --:--:--</div>
+            </div>
+
+            <div class="log" id="logBox"></div>
+
+        </div>
+    </div>
+
+    <script src="static/js/http-scan.js"></script>
+</body>
+
+</html>

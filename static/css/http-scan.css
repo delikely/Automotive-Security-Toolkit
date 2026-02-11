@@ -1,0 +1,215 @@
+:root {
+    --bg: #f6f7f9;
+    --card: #fff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --muted: #6b7280;
+    --green: #16a34a;
+    --blue: #2563eb;
+    --orange: #f59e0b;
+    --red: #dc2626;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ===== Page height baseline ===== */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--bg);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    color: var(--text);
+}
+
+/* ===== Main page container ===== */
+.container {
+    height: 100%;
+    max-width: 61.8%;
+    margin: 0 auto;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Main card, vertical flex layout ===== */
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .05);
+    min-height: 0;
+    /* ⭐ Critical */
+}
+
+h1 {
+    margin: 0 0 6px;
+    font-size: 26px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+/* ===== Control area ===== */
+.control-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 220px;
+}
+
+label {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+input[type="text"] {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--blue);
+}
+
+.protocols {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fafafa;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.protocols label {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+button:disabled {
+    opacity: .5;
+}
+
+.btn-start {
+    background: var(--green);
+    color: #fff;
+}
+
+.btn-pause {
+    background: var(--orange);
+    color: #fff;
+}
+
+.btn-resume {
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn-stop {
+    background: var(--red);
+    color: #fff;
+}
+
+/* ===== Status area ===== */
+.status {
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.progress {
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.time {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ===== Log area: consumes all remaining space ===== */
+.log {
+    flex: 1;
+    min-height: 0;
+    /* ⭐ Required */
+    margin-top: 18px;
+    overflow: auto;
+    background: #0b0f14;
+    color: #e5e7eb;
+    border-radius: 12px;
+    padding: 14px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+}
+
+
+.hit {
+    color: #22c55e;
+    padding-bottom: 1px;
+}
+
+.info {
+    color: #9ca3af;
+}
+
+.done {
+    color: #60a5fa;
+}
+
+.hit a {
+    color: #00ff88;
+    text-decoration: none;
+    padding-left: 20px;
+}
+
+.hit a:hover {
+    color: #00ffaa;
+}
