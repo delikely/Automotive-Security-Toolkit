@@ -57,7 +57,11 @@
 
     <script src="static/js/http-scan.js"></script>
     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-    <script>eruda.init();</script>
+    <script>
+        eruda.init({
+            tool: ['console', 'elements', 'network', 'resources', 'info']
+        });
+    </script>
 </body>
 
 </html>
