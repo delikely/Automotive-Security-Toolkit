@@ -68,6 +68,7 @@ h1 {
     gap: 14px;
     align-items: flex-end;
     flex-wrap: wrap;
+    padding-bottom: 25px;
 }
 
 .form-group {
@@ -80,7 +81,8 @@ label {
     color: var(--muted);
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
     width: 100%;
     margin-top: 6px;
     padding: 12px 14px;
@@ -212,4 +214,79 @@ button:disabled {
 
 .hit a:hover {
     color: #00ffaa;
+}
+
+/* Remove default fieldset style */
+.segmented-control {
+    border: none;
+    padding: 0;
+    margin: 0px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.segmented-control legend {
+    font-size: 13px;
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+/* Wrapper container */
+.segmented-wrapper {
+    position: relative;
+    display: inline-flex;
+    background: #f4f6f8;
+    border-radius: 999px;
+    padding: 4px;
+    box-shadow:
+        inset 0 2px 4px rgba(0,0,0,0.05),
+        0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Hide native radio buttons */
+.segmented-wrapper input {
+    display: none;
+}
+
+/* Button labels */
+.segmented-wrapper label {
+    position: relative;
+    padding: 8px 22px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 2;
+    color: #555;
+    transition: color 0.25s ease;
+}
+
+/* Active text color */
+.segmented-wrapper input:checked + label {
+    color: #111;
+    font-weight: 500;
+}
+
+/* Sliding highlight background */
+.slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: calc(100% - 8px);
+    width: calc((100% - 8px) / 3);
+    background: white;
+    border-radius: 999px;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.08);
+}
+
+/* Move slider based on selection */
+#fetch:checked ~ .slider {
+    transform: translateX(0%);
+}
+
+#img:checked ~ .slider {
+    transform: translateX(100%);
+}
+
+#blue:checked ~ .slider {
+    transform: translateX(200%);
 }

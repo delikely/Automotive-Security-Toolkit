@@ -31,6 +31,38 @@
                     <input id="portInput" type="text" value="80,443,8000-8100" placeholder="80,443,8000-8100">
                 </div>
 
+                <div class="form-group">
+                    <label>Threads</label>
+                    <input id="threadInput" type="number" value="8" min="1" max="32">
+                </div>
+
+                <div class="form-group">
+                    <label>Timeout</label>
+                    <input id="timeoutInput" type="number" value="1000" min="100" max="5000">
+                </div>
+            </div>
+
+            <div class="control-row">
+
+                <form id="methodForm">
+                    <fieldset class="segmented-control">
+                        <legend>Method</legend>
+
+                        <div class="segmented-wrapper">
+                            <input type="radio" id="fetch" name="method" value="fetch">
+                            <label for="fetch">Fetch</label>
+
+                            <input type="radio" id="img" name="method" value="img">
+                            <label for="img">IMG</label>
+
+                            <input type="radio" id="blue" name="method" value="link" checked>
+                            <label for="blue">Link</label>
+
+                            <div class="slider"></div>
+                        </div>
+                    </fieldset>
+                </form>
+
                 <div class="protocols">
                     <label><input type="checkbox" id="httpChk" checked> HTTP</label>
                     <label><input type="checkbox" id="httpsChk"> HTTPS</label>
@@ -57,10 +89,16 @@
 
     <script src="static/js/http-scan.js"></script>
     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-    <script>
+    <!-- <script>
         eruda.init({
             tool: ['console', 'elements', 'network', 'resources', 'info']
         });
+    </script> -->
+
+    <!-- use vConsole -->
+    <script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script>
+    <script>
+        var vConsole = new VConsole();
     </script>
 </body>
 
