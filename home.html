@@ -1,16 +1,209 @@
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="static/css/content.css" rel="stylesheet" />
-        <link href="static/css/home.css" rel="stylesheet" />
-        <title>Automotive Security Toolkit</title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
 
-    <body>
-        <div id="sub-content">
-            <h1> Automotive Security Toolkit </h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive Security Toolkits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/home.css">
+    <script src="static/js/home.js"></script>
+
+</head>
+
+<body class="h-screen overflow-hidden flex flex-col">
+
+    <nav class="shrink-0 w-full px-8 py-6">
+        <div class="max-w-7xl mx-auto flex items-center justify-end">
+
+            <div class="flex items-center space-x-6">
+                <a
+                    class="flex items-center space-x-2 bg-gray-50 px-4 py-1.5 rounded-full text-[10px] font-bold hover:bg-gray-100 transition uppercase tracking-widest border border-gray-100">
+                    <span class="text-yellow-500">⭐</span> <span id="gh-stars"></span>
+                </a>
+                <a href="https://github.com/automotive-security/Automotive-Security-Toolkit"
+                    class="text-[10px] font-bold uppercase tracking-widest hover:text-blue-600 transition flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+
+                </a>
+            </div>
         </div>
+    </nav>
 
-    </body>
-</html> 
+    <main class="flex-grow overflow-y-auto no-scrollbar px-8">
+        <div class="max-w-7xl mx-auto h-full flex flex-col justify-center gap-12 py-4">
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-6 space-y-4">
+                    <p class="text-[11px] font-bold tracking-[0.3em] uppercase text-blue-500 mb-1">Automotive
+                        Cybersecurity</p>
+                    <h1 class="text-4xl md:text-[4.25rem] font-bold leading-[1.05] tracking-tight text-gray-900">
+                        Automotive<br><span class="text-gray-300">Security</span> <span
+                            class="text-blue-500">Toolkit</span>
+                    </h1>
+                    <p class="text-base text-gray-400 max-w-md font-light leading-relaxed">
+                        A continuously evolving platform of lightweight online utilities for automotive cybersecurity
+                        research and engineering.
+                    </p>
+                </div>
+
+                <div class="md:col-span-6 flex justify-center items-center relative h-64 md:h-96">
+                    <svg class="w-full h-full float-animation" viewBox="0 0 520 280" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+
+                        <!-- Ground shadow -->
+                        <ellipse cx="260" cy="250" rx="180" ry="6" fill="#F3F4F6" />
+
+                        <!-- Vehicle body -->
+                        <path d="M90 210
+                                 C90 185 85 175 105 172
+                                 C130 168 155 165 175 150
+                                 C195 135 215 120 250 116
+                                 C300 110 340 112 380 125
+                                 C405 133 420 150 430 170
+                                 C438 185 435 200 430 210
+                                 Z" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2" />
+
+                        <!-- Roof line -->
+                        <path d="M178 148 C200 135 225 118 252 114 C290 108 330 110 378 124 C402 132 415 145 425 158"
+                            fill="none" stroke="#94A3B8" stroke-width="1.5" />
+
+                        <!-- Belt line -->
+                        <path d="M192 145 L410 145" stroke="#D1D5DB" stroke-width="1.2" fill="none" />
+
+                        <!-- Pillars -->
+                        <path d="M248 120 L248 205" stroke="#E2E8F0" stroke-width="1.5" fill="none" />
+                        <path d="M320 118 L320 205" stroke="#E2E8F0" stroke-width="1.5" fill="none" />
+                        <path d="M385 140 L388 205" stroke="#E2E8F0" stroke-width="1" fill="none" />
+
+                        <!-- Door handles -->
+                        <rect x="275" y="168" width="22" height="4" rx="2" fill="#D1D5DB" />
+                        <rect x="335" y="168" width="22" height="4" rx="2" fill="#D1D5DB" />
+
+                        <!-- Wheel arches -->
+                        <path d="M92 210 C 100 170 130 165 170 165 C184 165 186 175 186 210" fill="#F8FAFC"
+                            stroke="#E2E8F0" stroke-width="1.5" />
+                        <path d="M354 210 C354 175 364 165 402 165 C430 165 438 175 438 210" fill="#F8FAFC"
+                            stroke="#E2E8F0" stroke-width="1.5" />
+
+                        <!-- Front wheel -->
+                        <circle cx="138" cy="210" r="36" fill="#6B7280" />
+                        <circle cx="138" cy="210" r="28" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5" />
+                        <circle cx="138" cy="210" r="11" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="1" />
+
+                        <!-- Rear wheel -->
+                        <circle cx="396" cy="210" r="36" fill="#6B7280" />
+                        <circle cx="396" cy="210" r="28" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5" />
+                        <circle cx="396" cy="210" r="11" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="1" />
+
+                        <!-- Scan line -->
+                        <g class="scan-vertical" transform="translate(0, 0)">
+                            <line x1="60" y1="120" x2="460" y2="120" stroke="#3B82F6" stroke-width="3"
+                                stroke-dasharray="8 4" opacity="0.8" />
+                            <line x1="60" y1="120" x2="460" y2="120" stroke="#60A5FA" stroke-width="1.5"
+                                stroke-dasharray="4 4" opacity="0.5" />
+                        </g>
+
+                        <!-- Labels with connectors - moved closer to center -->
+                        <g font-family="Inter, sans-serif" font-weight="700" font-size="9">
+
+                            <!-- CAN BUS SCAN - moved further right toward center -->
+                            <rect x="84" y="78" width="80" height="26" rx="13" fill="white" stroke="#3B82F6"
+                                stroke-width="1.8" />
+                            <circle cx="99" cy="91" r="3" fill="#3B82F6" class="lookup-pulse-dot" />
+                            <text x="111" y="96" fill="#3B82F6" font-weight="600">SCAN</text>
+                            <!-- Vertical line - aligned with label center -->
+                            <line x1="124" y1="104" x2="124" y2="170" stroke="#3B82F6" stroke-width="1.5"
+                                stroke-dasharray="6 3" class="dash-flow" opacity="0.7" />
+                            <circle cx="124" cy="170" r="3" fill="#3B82F6" stroke="white" stroke-width="1.5" />
+
+                            <!-- ISO 21434 READY - centered -->
+                            <rect x="217" y="30" width="90" height="26" rx="13" fill="#111827" />
+                            <circle cx="232" cy="43" r="3" fill="white" class="lookup-pulse-dot" />
+                            <text x="244" y="48" fill="white" font-weight="600">ANALYSIS</text>
+                            <line x1="262" y1="56" x2="262" y2="113" stroke="#6B7280" stroke-width="1.5"
+                                stroke-dasharray="5 3" class="dash-flow" opacity="0.6" />
+                            <circle cx="262" cy="113" r="3" fill="#6B7280" stroke="white" stroke-width="1.5" />
+
+                            <!-- TARA READY - moved further left toward center -->
+                            <rect x="341" y="70" width="80" height="26" rx="13" fill="white" stroke="#10B981"
+                                stroke-width="1.8" />
+                            <circle cx="356" cy="83" r="3" fill="#10B981" class="lookup-pulse-dot" />
+                            <text x="368" y="88" fill="#10B981" font-weight="600">EXPOLIT </text>
+                            <!-- Vertical line - aligned with label center -->
+                            <line x1="381" y1="96" x2="381" y2="127" stroke="#10B981" stroke-width="1.5"
+                                stroke-dasharray="6 3" class="dash-flow" opacity="0.7" />
+                            <circle cx="381" cy="127" r="3" fill="#10B981" stroke="white" stroke-width="1.5" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card p-10 bg-white rounded-[40px] cursor-pointer group">
+                    <div class="flex justify-between items-start mb-8">
+                        <span class="text-blue-600 font-bold text-sm tracking-[0.2em] uppercase">Lightweight</span>
+                        <div
+                            class="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-all">
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-all" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="2" y="3" width="20" height="14" rx="2" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <path d="M8 21h8M12 17v4" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h4 class="text-base font-bold text-gray-900 mb-3 uppercase tracking-tight">Browser-Based Utilities
+                    </h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">No installation required. Access powerful
+                        automotive analysis tools directly through your browser on any OS.</p>
+                </div>
+                <div class="feature-card p-10 bg-white rounded-[40px] cursor-pointer group">
+                    <div class="flex justify-between items-start mb-8">
+                        <span class="text-blue-600 font-bold text-sm tracking-[0.2em] uppercase">Evolving</span>
+                        <div
+                            class="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-all">
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-all" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h4 class="text-base font-bold text-gray-900 mb-3 uppercase tracking-tight">Continuously Updated
+                    </h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">Tools are actively iterated based on real-world
+                        usage. Missing a feature or tool? <a
+                            href="https://github.com/automotive-security/Automotive-Security-Toolkit/issues"
+                            class="text-blue-500 hover:underline">Open an issue</a> and help shape what gets built next.
+                    </p>
+                </div>
+                <div class="feature-card p-10 bg-white rounded-[40px] cursor-pointer group">
+                    <div class="flex justify-between items-start mb-8">
+                        <span class="text-blue-600 font-bold text-sm tracking-[0.2em] uppercase">Professional</span>
+                        <div
+                            class="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-all">
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-all" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04L3 6.28V11c0 5.555 3.841 10.258 9 11.5 5.159-1.242 9-5.945 9-11.5V6.28l-.382-.032z"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h4 class="text-base font-bold text-gray-900 mb-3 uppercase tracking-tight">Pentest & Compliance
+                    </h4>
+                    <p class="text-sm text-gray-400 leading-relaxed">Designed for offensive validation and compliance
+                        workflows with practical, standards-aligned tools.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
