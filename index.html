@@ -11,9 +11,21 @@
   <link href="static/css/index.css" rel="stylesheet" />
   <title>Automotive Security Toolkit</title>
 </head>
+
+<body>
+<!-- Mobile Menu Button -->
+<button class="sidebar-toggle" id="sidebarToggle">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <path d="M3 12h18M3 6h18M3 18h18"></path>
+  </svg>
+</button>
+
+<!-- Mobile Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
 <div id="navigator">
   <div class="sidebar">
-    <div class="logo-wrapper">
+    <a href="?option=home" class="logo-wrapper">
       <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"
         height="60" width="60">
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -39,161 +51,184 @@
             fill="#631536"></path>
         </g>
       </svg>
-
       Toolkit
-    </div>
-    <ul class="sidebar-menu">
-      <li>
+    </a>
+
+    <div class="sidebar-scroll">
+      <!-- Search -->
+      <div class="sidebar-search">
+        <div class="sidebar-search-wrapper">
+          <input type="text" class="sidebar-search-input" id="sidebarSearch" placeholder="Search tools...">
+        </div>
+      </div>
+
+      <ul class="sidebar-menu">
+      <!-- Home -->
+      <!-- <li data-name="Home">
         <a href="?option=home" class="nav-link" id="home">
           <span class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" aria-label="Home" class="_ab6-" color="rgb(0, 0, 0)"
-              fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24">
-              <path
-                d="M9.005 16.545a2.997 2.997 0 0 1 2.997-2.997A2.997 2.997 0 0 1 15 16.545V22h7V11.543L12 2 2 11.543V22h7.005Z"
-                fill="none" stroke="#000000" stroke-linejoin="round" stroke-width="2px"></path>
+            <svg xmlns="http://www.w3.org/2000/svg" aria-label="Home" class="_ab6-" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24">
+              <path d="M9.005 16.545a2.997 2.997 0 0 1 2.997-2.997A2.997 2.997 0 0 1 15 16.545V22h7V11.543L12 2 2 11.543V22h7.005Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-width="2px"></path>
             </svg>
           </span>
           Home
         </a>
-      </li>
+      </li> -->
 
-      <li>
-        <a href="?option=attack_potential_calculator" class="nav-link" id="attack_potential_calculator">
-          <span class="icon">
-            <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M40 4H8.0002C6.89565 4 6.00022 4.89541 6.0002 5.99996L5.99955 42C5.99953 43.1045 6.89497 44 7.99955 44H40C41.1046 44 42 43.1046 42 42V6C42 4.89543 41.1046 4 40 4Z"
-                fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
-              <path d="M35 10H13V19H35V10Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
-              <path d="M12 28L19 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M19 28L12 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M28 35H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M28 29H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          Attack Potential Calc
-        </a>
-      </li>
+      <!-- Security Assessment -->
+      <div class="sidebar-category-header" data-category="security">
+        <span>Assessment</span>
+        <svg class="toggle-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <div class="sidebar-category-content" data-category="security">
+        <li data-name="Attack Potential Calc">
+          <a href="?option=attack_potential_calculator" class="nav-link" id="attack_potential_calculator">
+            <span class="icon">
+              <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 4H8.0002C6.89565 4 6.00022 4.89541 6.0002 5.99996L5.99955 42C5.99953 43.1045 6.89497 44 7.99955 44H40C41.1046 44 42 43.1046 42 42V6C42 4.89543 41.1046 4 40 4Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+                <path d="M35 10H13V19H35V10Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+                <path d="M12 28L19 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M19 28L12 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M28 35H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M28 29H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            Attack Potential Calc
+          </a>
+        </li>
+        <li data-name="GB/T 45496 Calc">
+          <a href="?option=GB_T_45496_2025_calculator" class="nav-link" id="GB_T_45496_2025_calculator">
+            <span class="icon">
+              <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 4H8.0002C6.89565 4 6.00022 4.89541 6.0002 5.99996L5.99955 42C5.99953 43.1045 6.89497 44 7.99955 44H40C41.1046 44 42 43.1046 42 42V6C42 4.89543 41.1046 4 40 4Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+                <path d="M35 10H13V19H35V10Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+                <path d="M12 28L19 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M19 28L12 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M28 35H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M28 29H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            GB/T 45496 Calc
+          </a>
+        </li>
+      </div>
 
-      <li>
-        <a href="?option=GB_T_45496_2025_calculator" class="nav-link" id="GB_T_45496_2025_calculator">
-          <span class="icon">
-            <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M40 4H8.0002C6.89565 4 6.00022 4.89541 6.0002 5.99996L5.99955 42C5.99953 43.1045 6.89497 44 7.99955 44H40C41.1046 44 42 43.1046 42 42V6C42 4.89543 41.1046 4 40 4Z"
-                fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
-              <path d="M35 10H13V19H35V10Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
-              <path d="M12 28L19 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M19 28L12 35" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M28 35H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M28 29H36" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          GB/T 45496 Calc
-        </a>
-      </li>
+      <!-- Automotive Protocols -->
+      <div class="sidebar-category-header" data-category="protocol">
+        <span>Protocols</span>
+        <svg class="toggle-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <div class="sidebar-category-content" data-category="protocol">
+        <li data-name="UDS">
+          <a href="?option=UDS" class="nav-link" id="UDS">
+            <span class="icon">
+              <svg t="1761664929020" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="19575" width="48" height="48"><path d="M936.96 806.912h-22.528V768c0-11.264-9.216-20.48-19.456-20.48H613.376c-2.048 12.288-12.288 22.528-25.6 22.528H422.912c-13.312 0-23.552-10.24-25.6-22.528H122.88c-11.264 0-19.456 9.216-19.456 20.48v38.912H79.872c-6.144 0-10.24 4.096-10.24 10.24s4.096 10.24 10.24 10.24h856.064c6.144 0 10.24-4.096 10.24-10.24s-4.096-10.24-9.216-10.24zM36.864 806.912H20.48c-6.144 0-10.24 4.096-10.24 10.24s4.096 10.24 10.24 10.24h16.384c6.144 0 10.24-4.096 10.24-10.24s-4.096-10.24-10.24-10.24zM1003.52 806.912h-26.624c-6.144 0-10.24 4.096-10.24 10.24s4.096 10.24 10.24 10.24H1003.52c6.144 0 10.24-4.096 10.24-10.24s-5.12-10.24-10.24-10.24zM885.76 684.032L836.608 645.12v32.768H177.152V468.992c1.024 0 2.048 1.024 3.072 1.024H317.44c3.072 0 7.168-2.048 8.192-5.12l47.104-74.752 45.056 122.88c1.024 4.096 5.12 6.144 8.192 6.144 4.096 0 8.192-1.024 10.24-5.12l38.912-64.512c-1.024-14.336 0-28.672 2.048-43.008l-48.128 78.848-45.056-121.856c-1.024-4.096-5.12-6.144-8.192-7.168s-7.168 1.024-10.24 5.12l-55.296 87.04H180.224c-1.024 0-2.048 0-3.072 1.024V245.76h659.456v112.64c21.504 46.08 24.576 99.328 7.168 145.408l41.984 33.792V238.592c0-23.552-18.432-41.984-40.96-41.984H169.984c-22.528 0-40.96 18.432-40.96 41.984v489.472h757.76v-44.032z" p-id="19576" fill="#333333"></path><path d="M691.2 339.968l-1.024-1.024c-2.048-4.096-6.144-6.144-10.24-6.144-3.072 0-6.144 2.048-8.192 5.12 0 1.024-1.024 2.048-1.024 3.072L645.12 452.608l-40.96-41.984c-3.072-3.072-6.144-4.096-10.24-3.072-4.096 1.024-6.144 4.096-7.168 7.168l-16.384 61.44c4.096 9.216 8.192 17.408 14.336 24.576l17.408-64.512 40.96 43.008c3.072 3.072 6.144 4.096 10.24 3.072 4.096-1.024 6.144-4.096 7.168-7.168l22.528-98.304 41.984 99.328c2.048 4.096 5.12 6.144 9.216 6.144H757.76c3.072-6.144 5.12-13.312 7.168-20.48h-22.528l-51.2-121.856z" p-id="19577" fill="#333333"></path><path d="M958.464 620.544L819.2 509.952c30.72-61.44 17.408-148.48-45.056-200.704-71.68-59.392-178.176-50.176-237.568 21.504-59.392 71.68-50.176 178.176 21.504 237.568 62.464 52.224 151.552 51.2 214.016 2.048 0 0 1.024-1.024 2.048-1.024L911.36 677.888c15.36 13.312 38.912 11.264 52.224-5.12 12.288-16.384 10.24-39.936-5.12-52.224zM759.808 516.096C716.8 568.32 640 575.488 587.776 532.48c-51.2-43.008-58.368-120.832-15.36-172.032s120.832-58.368 172.032-15.36 58.368 119.808 15.36 171.008z" p-id="19578" fill="#333333"></path></svg>
+            </span>
+            UDS
+          </a>
+        </li>
+        <li data-name="UDS DID">
+          <a href="?option=UDS_DID" class="nav-link" id="UDS_DID">
+            <span class="icon">
+              <svg t="1710011465460" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4328" width="48" height="48">
+                <path d="M198.4 780.8 198.4 230.4l70.4 0 0 550.4L198.4 780.8z" p-id="4329" fill="#333333"></path>
+                <path d="M403.2 780.8 403.2 230.4l192 0c44.8 0 76.8 0 96 6.4 32 6.4 57.6 19.2 83.2 38.4 32 25.6 51.2 57.6 64 96s19.2 83.2 19.2 128c0 44.8-6.4 76.8-12.8 108.8s-19.2 57.6-38.4 83.2-32 38.4-51.2 51.2-38.4 19.2-64 25.6-57.6 6.4-89.6 6.4L403.2 774.4zM473.6 716.8l115.2 0c38.4 0 64-6.4 83.2-12.8s38.4-19.2 51.2-25.6c19.2-19.2 32-38.4 38.4-70.4s12.8-64 12.8-108.8c0-57.6-6.4-102.4-25.6-134.4s-44.8-51.2-70.4-64c-19.2-6.4-51.2-12.8-96-12.8L473.6 288 473.6 716.8z" p-id="4330" fill="#333333"></path>
+              </svg>
+            </span>
+            UDS DID
+          </a>
+        </li>
+        <li data-name="XCP">
+          <a href="?option=XCP" class="nav-link" id="XCP">
+            <span class="icon">
+              <svg t="1761658996550" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17292" width="48" height="48"><path d="M752.242 660.821a482.532 482.532 0 0 0 116.053-131.185 450.105 450.105 0 0 0 60.53-226.987H827.904a368.014 368.014 0 0 1-45.397 176.583 370.745 370.745 0 0 1-80.669 95.8l-75.662-136.191c30.265-35.271 50.404-80.669 50.404-136.192 0-95.858-65.536-171.52-151.325-196.722V0H424.391v105.927C338.603 131.13 273.067 206.791 273.067 302.65c0 55.523 20.138 100.92 55.466 136.192L71.282 882.745a97.849 97.849 0 0 0 35.27 136.192l176.584-307.712a428.26 428.26 0 0 0 191.716 45.397c65.536 0 131.128-15.132 191.658-40.334L843.093 1024c50.404-30.265 65.536-90.795 35.271-136.192L752.242 660.821z m-277.39-459.093c55.466 0 100.864 45.454 100.864 100.92 0 55.524-45.398 100.922-100.864 100.922A101.205 101.205 0 0 1 373.93 302.649c0-55.467 45.397-100.864 100.92-100.864z m0 454.03a356.01 356.01 0 0 1-141.256-30.265l75.663-131.129c20.195 5.007 40.39 10.07 60.53 10.07 20.195 0 40.39-5.063 60.53-10.07l75.661 131.13c-35.27 20.195-85.731 30.264-131.128 30.264z" p-id="17293" fill="#333333"></path></svg>
+            </span>
+            XCP
+          </a>
+        </li>
+        <li data-name="J1939">
+          <a href="?option=J1939" class="nav-link" id="J1939">
+            <span class="icon">
+              <svg t="1710011465460" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4328" width="48" height="48">
+                <path d="M198.4 780.8 198.4 230.4l70.4 0 0 550.4L198.4 780.8z" p-id="4329" fill="#333333"></path>
+                <path d="M403.2 780.8 403.2 230.4l192 0c44.8 0 76.8 0 96 6.4 32 6.4 57.6 19.2 83.2 38.4 32 25.6 51.2 57.6 64 96s19.2 83.2 19.2 128c0 44.8-6.4 76.8-12.8 108.8s-19.2 57.6-38.4 83.2-32 38.4-51.2 51.2-38.4 19.2-64 25.6-57.6 6.4-89.6 6.4L403.2 774.4zM473.6 716.8l115.2 0c38.4 0 64-6.4 83.2-12.8s38.4-19.2 51.2-25.6c19.2-19.2 32-38.4 38.4-70.4s12.8-64 12.8-108.8c0-57.6-6.4-102.4-25.6-134.4s-44.8-51.2-70.4-64c-19.2-6.4-51.2-12.8-96-12.8L473.6 288 473.6 716.8z" p-id="4330" fill="#333333"></path>
+              </svg>
+            </span>
+            J1939
+          </a>
+        </li>
+      </div>
 
+      <!-- Tools -->
+      <div class="sidebar-category-header" data-category="tools">
+        <span>Tools</span>
+        <svg class="toggle-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <div class="sidebar-category-content" data-category="tools">
+        <li data-name="WMI Lookup">
+          <a href="?option=WMI_lookup" class="nav-link" id="WMI_list">
+            <span class="icon">
+              <?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="17" y="6" width="14" height="28" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+                <path d="M42 42H6" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            WMI Lookup
+          </a>
+        </li>
+        <li data-name="Hexview">
+          <a href="?option=hexview" class="nav-link" id="hexview">
+            <span class="icon">
+              <svg t="1758469546596" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4660" width="24" height="24">
+                <path d="M512 0.298667L66.986667 258.389333V770.133333L512 1023.786667l445.013333-258.090667V253.952L512 0.298667z m204.714667 729.813333l-40.064 22.229333-40.064-22.229333V552.106667H387.413333v178.005333l-40.106666 22.229333-40.021334-22.229333V293.973333l40.064-22.229333 40.064 22.229333v178.005334h249.173334V293.973333l40.106666-22.229333 40.021334 22.229333v436.138667z" p-id="4661" fill="#333333"></path>
+              </svg>
+            </span>
+            Hexview
+          </a>
+        </li>
+        <li data-name="HTTP SCAN">
+          <a href="?option=http_scan" class="nav-link" id="http_scan">
+            <span class="icon">
+              <svg t="1770771579159" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5129" width="48" height="48"><path d="M926.6 336.8c-22.7-53.6-55.1-101.7-96.4-143-41.3-41.3-89.4-73.8-143-96.4C631.7 73.9 572.7 62 512 62c-60.7 0-119.7 11.9-175.2 35.4-53.6 22.7-101.7 55.1-143 96.4-41.3 41.3-73.8 89.4-96.4 143C73.9 392.3 62 451.3 62 512c0 60.7 11.9 119.7 35.4 175.2 22.7 53.6 55.1 101.7 96.4 143 41.3 41.3 89.4 73.8 143 96.4C392.3 950.1 451.3 962 512 962c60.7 0 119.7-11.9 175.2-35.4 53.6-22.7 101.7-55.1 143-96.4 41.3-41.3 73.8-89.4 96.4-143C950.1 631.7 962 572.7 962 512c0-60.7-11.9-119.7-35.4-175.2z m-685.7-95.9C280.8 201 328 171 379.5 152c-2.9 3.1-5.8 6.3-8.7 9.5-33.9 38-61.4 82.1-81.7 130.9-33.7-3.6-62-7.5-83.6-10.9 10.9-14.2 22.7-27.8 35.4-40.6z m93.6 122.9c9.8 0.8 20 1.6 30.5 2.3 37.8 2.6 75.7 4.2 113.7 4.8v107.8H314.4c2.9-40.7 9.6-79.2 20.1-114.9zM167.8 343c21.1 3.7 55 9.1 99.4 14.2-10.3 38.2-16.9 78.8-19.6 121.5H130.1c4.1-47.7 16.9-93.6 37.7-135.7z m0.2 338.6c-20.9-42.3-33.8-88.4-37.9-136.2h116.6c2.1 40.8 10.1 81.5 24.1 121.7-46 5.1-81.1 10.6-102.8 14.5z m72.9 101.5c-12.6-12.6-24.3-26-35-40.2 23.5-3.6 54.7-7.9 92.3-11.8 19 37 43 73.3 71.7 108.1 11.9 14.4 24.3 28.3 37.2 41.7-62.1-17.6-119.2-50.9-166.2-97.8z m237.8 74.5c-17.7-16.5-38.1-37.5-58.4-62.2-18.8-23-35.3-46.6-49.4-70.5 35.9-2.4 71.8-3.9 107.7-4.5v137.2z m0-203.9c-37.9 0.6-75.9 2.2-113.7 4.8-8.8 0.6-17.3 1.2-25.6 1.9-14.9-38-23.6-76.6-25.9-115.1h165.2v108.4z m0-349.6c-35.9-0.6-71.9-2.1-107.7-4.5-3.9-0.3-7.8-0.5-11.6-0.8 15.8-33.2 35.6-63.5 59-90.3 21.1-24.2 42.4-42.2 60.3-55.1v150.7z m304.4-63.2c12.8 12.8 24.6 26.4 35.5 40.8-26 4-52.1 7.5-78.2 10.4-20.3-48.7-47.7-92.6-81.6-130.6-1.8-2.1-3.7-4.1-5.6-6.2 48 19.1 92.2 48 129.9 85.6z m-237.8-91.4c18.4 12.7 41 31.1 63.6 56.5 24.4 27.4 44.9 58.5 61.2 92.7-43.7 3.3-85.5 5-124.9 5.6V149.5z m0 221.4c18.3-0.3 36.6-0.7 54.7-1.4 31.7-1.2 63.3-3.2 94.9-5.9 10.6 35.8 17.3 74.3 20.2 115.1H545.3V370.9z m0 174.4h170.8c-2.3 38.5-11 77.1-26 115.2-30-2.5-60-4.3-90.1-5.5-18.2-0.7-36.5-1.2-54.7-1.4V545.3z m0 317.5V720.4c35.8 0.5 73.7 2 113.2 4.7-14 23.9-30.5 47.4-49.3 70.3-22.4 27.4-45 50.1-63.9 67.4z m237.8-79.7c-45 45-99.3 77.5-158.5 95.6 12.2-12.7 23.8-25.8 35-39.4 28.6-34.7 52.6-70.9 71.6-107.8 29.1 3.1 58.1 6.9 87 11.3-10.8 14.2-22.5 27.7-35.1 40.3zM856 681.4c-32.3-5.5-64.8-10.2-97.4-14 14-40.3 22.1-81.2 24.2-122.1h111c-4 47.8-16.9 93.8-37.8 136.1z m-74-202.7c-2.7-42.8-9.3-83.6-19.7-121.9 31.4-3.8 62.8-8.3 94-13.6 20.7 42.1 33.5 88 37.6 135.6H782z" p-id="5130" fill="#333333"></path></svg>
+            </span>
+            HTTP SCAN
+          </a>
+        </li>
+        <li data-name="JumpX">
+          <a href="?option=JumpX" class="nav-link" id="JumpX">
+            <span class="icon">
+              <svg t="1710011600000" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6000" width="48" height="48">
+                <path d="M896 128H128c-35.3 0-64 28.7-64 64v640c0 35.3 28.7 64 64 64h768c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64z m0 704H128V192h768v640z" p-id="6001" fill="#333333"></path>
+                <path d="M256 384h512v64H256zM256 512h512v64H256zM256 640h384v64H256z" p-id="6002" fill="#333333"></path>
+                <path d="M800 256L640 416l-96-96-160 160 160 160 256-256z" p-id="6003" fill="#333333"></path>
+              </svg>
+            </span>
+            JumpX
+          </a>
+        </li>
+      </div>
 
-      <li>
-        <a href="?option=WMI_lookup" class="nav-link" id="WMI_list">
-          <span class="icon">
-            <?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <rect x="17" y="6" width="14" height="28" fill="none" stroke="#333" stroke-width="4"
-                stroke-linejoin="round" />
-              <path d="M42 42H6" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          WMI Lookup
-        </a>
-      </li>
-
-
-      <li>
-        <a href="?option=UDS" class="nav-link" id="UDS">
-          <span class="icon">
-            <svg t="1761664929020" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="19575" width="48" height="48"><path d="M936.96 806.912h-22.528V768c0-11.264-9.216-20.48-19.456-20.48H613.376c-2.048 12.288-12.288 22.528-25.6 22.528H422.912c-13.312 0-23.552-10.24-25.6-22.528H122.88c-11.264 0-19.456 9.216-19.456 20.48v38.912H79.872c-6.144 0-10.24 4.096-10.24 10.24s4.096 10.24 10.24 10.24h856.064c6.144 0 10.24-4.096 10.24-10.24s-4.096-10.24-9.216-10.24zM36.864 806.912H20.48c-6.144 0-10.24 4.096-10.24 10.24s4.096 10.24 10.24 10.24h16.384c6.144 0 10.24-4.096 10.24-10.24s-4.096-10.24-10.24-10.24zM1003.52 806.912h-26.624c-6.144 0-10.24 4.096-10.24 10.24s4.096 10.24 10.24 10.24H1003.52c6.144 0 10.24-4.096 10.24-10.24s-5.12-10.24-10.24-10.24zM885.76 684.032L836.608 645.12v32.768H177.152V468.992c1.024 0 2.048 1.024 3.072 1.024H317.44c3.072 0 7.168-2.048 8.192-5.12l47.104-74.752 45.056 122.88c1.024 4.096 5.12 6.144 8.192 6.144 4.096 0 8.192-1.024 10.24-5.12l38.912-64.512c-1.024-14.336 0-28.672 2.048-43.008l-48.128 78.848-45.056-121.856c-1.024-4.096-5.12-6.144-8.192-7.168s-7.168 1.024-10.24 5.12l-55.296 87.04H180.224c-1.024 0-2.048 0-3.072 1.024V245.76h659.456v112.64c21.504 46.08 24.576 99.328 7.168 145.408l41.984 33.792V238.592c0-23.552-18.432-41.984-40.96-41.984H169.984c-22.528 0-40.96 18.432-40.96 41.984v489.472h757.76v-44.032z" p-id="19576" fill="#333333"></path><path d="M691.2 339.968l-1.024-1.024c-2.048-4.096-6.144-6.144-10.24-6.144-3.072 0-6.144 2.048-8.192 5.12 0 1.024-1.024 2.048-1.024 3.072L645.12 452.608l-40.96-41.984c-3.072-3.072-6.144-4.096-10.24-3.072-4.096 1.024-6.144 4.096-7.168 7.168l-16.384 61.44c4.096 9.216 8.192 17.408 14.336 24.576l17.408-64.512 40.96 43.008c3.072 3.072 6.144 4.096 10.24 3.072 4.096-1.024 6.144-4.096 7.168-7.168l22.528-98.304 41.984 99.328c2.048 4.096 5.12 6.144 9.216 6.144H757.76c3.072-6.144 5.12-13.312 7.168-20.48h-22.528l-51.2-121.856z" p-id="19577" fill="#333333"></path><path d="M958.464 620.544L819.2 509.952c30.72-61.44 17.408-148.48-45.056-200.704-71.68-59.392-178.176-50.176-237.568 21.504-59.392 71.68-50.176 178.176 21.504 237.568 62.464 52.224 151.552 51.2 214.016 2.048 0 0 1.024-1.024 2.048-1.024L911.36 677.888c15.36 13.312 38.912 11.264 52.224-5.12 12.288-16.384 10.24-39.936-5.12-52.224zM759.808 516.096C716.8 568.32 640 575.488 587.776 532.48c-51.2-43.008-58.368-120.832-15.36-172.032s120.832-58.368 172.032-15.36 58.368 119.808 15.36 171.008z" p-id="19578" fill="#333333"></path></svg>
-          </span>
-          UDS
-        </a>
-      </li>
-
-
-      <li>
-        <a href="?option=XCP" class="nav-link" id="XCP">
-          <span class="icon">
-            <svg t="1761658996550" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17292" width="48" height="48"><path d="M752.242 660.821a482.532 482.532 0 0 0 116.053-131.185 450.105 450.105 0 0 0 60.53-226.987H827.904a368.014 368.014 0 0 1-45.397 176.583 370.745 370.745 0 0 1-80.669 95.8l-75.662-136.191c30.265-35.271 50.404-80.669 50.404-136.192 0-95.858-65.536-171.52-151.325-196.722V0H424.391v105.927C338.603 131.13 273.067 206.791 273.067 302.65c0 55.523 20.138 100.92 55.466 136.192L71.282 882.745a97.849 97.849 0 0 0 35.27 136.192l176.584-307.712a428.26 428.26 0 0 0 191.716 45.397c65.536 0 131.128-15.132 191.658-40.334L843.093 1024c50.404-30.265 65.536-90.795 35.271-136.192L752.242 660.821z m-277.39-459.093c55.466 0 100.864 45.454 100.864 100.92 0 55.524-45.398 100.922-100.864 100.922A101.205 101.205 0 0 1 373.93 302.649c0-55.467 45.397-100.864 100.92-100.864z m0 454.03a356.01 356.01 0 0 1-141.256-30.265l75.663-131.129c20.195 5.007 40.39 10.07 60.53 10.07 20.195 0 40.39-5.063 60.53-10.07l75.661 131.13c-35.27 20.195-85.731 30.264-131.128 30.264z" p-id="17293" fill="#333333"></path></svg>
-          </span>
-          XCP
-        </a>
-      </li>
-
-      <li>
-        <a href="?option=UDS_DID" class="nav-link" id="UDS_DID">
-          <span class="icon">
-            <svg t="1710011465460" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-              p-id="4328" width="48" height="48">
-              <path d="M198.4 780.8 198.4 230.4l70.4 0 0 550.4L198.4 780.8z" p-id="4329" fill="#333333"></path>
-              <path
-                d="M403.2 780.8 403.2 230.4l192 0c44.8 0 76.8 0 96 6.4 32 6.4 57.6 19.2 83.2 38.4 32 25.6 51.2 57.6 64 96s19.2 83.2 19.2 128c0 44.8-6.4 76.8-12.8 108.8s-19.2 57.6-38.4 83.2-32 38.4-51.2 51.2-38.4 19.2-64 25.6-57.6 6.4-89.6 6.4L403.2 774.4zM473.6 716.8l115.2 0c38.4 0 64-6.4 83.2-12.8s38.4-19.2 51.2-25.6c19.2-19.2 32-38.4 38.4-70.4s12.8-64 12.8-108.8c0-57.6-6.4-102.4-25.6-134.4s-44.8-51.2-70.4-64c-19.2-6.4-51.2-12.8-96-12.8L473.6 288 473.6 716.8z"
-                p-id="4330" fill="#333333"></path>
-            </svg>
-          </span>
-          UDS DID
-        </a>
-      </li>
-
-      <li>
-        <a href="?option=J1939" class="nav-link" id="J1939">
-          <span class="icon">
-            <svg t="1710011465460" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-              p-id="4328" width="48" height="48">
-              <path d="M198.4 780.8 198.4 230.4l70.4 0 0 550.4L198.4 780.8z" p-id="4329" fill="#333333"></path>
-              <path
-                d="M403.2 780.8 403.2 230.4l192 0c44.8 0 76.8 0 96 6.4 32 6.4 57.6 19.2 83.2 38.4 32 25.6 51.2 57.6 64 96s19.2 83.2 19.2 128c0 44.8-6.4 76.8-12.8 108.8s-19.2 57.6-38.4 83.2-32 38.4-51.2 51.2-38.4 19.2-64 25.6-57.6 6.4-89.6 6.4L403.2 774.4zM473.6 716.8l115.2 0c38.4 0 64-6.4 83.2-12.8s38.4-19.2 51.2-25.6c19.2-19.2 32-38.4 38.4-70.4s12.8-64 12.8-108.8c0-57.6-6.4-102.4-25.6-134.4s-44.8-51.2-70.4-64c-19.2-6.4-51.2-12.8-96-12.8L473.6 288 473.6 716.8z"
-                p-id="4330" fill="#333333"></path>
-            </svg>
-          </span>
-          J1939
-        </a>
-      </li>
-
-      <li>
-        <a href="?option=hexview" class="nav-link" id="hexview">
-          <span class="icon">
-            <svg t="1758469546596" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-              p-id="4660" width="24" height="24">
-              <path
-                d="M512 0.298667L66.986667 258.389333V770.133333L512 1023.786667l445.013333-258.090667V253.952L512 0.298667z m204.714667 729.813333l-40.064 22.229333-40.064-22.229333V552.106667H387.413333v178.005333l-40.106666 22.229333-40.021334-22.229333V293.973333l40.064-22.229333 40.064 22.229333v178.005334h249.173334V293.973333l40.106666-22.229333 40.021334 22.229333v436.138667z"
-                p-id="4661" fill="#333333"></path>
-            </svg>
-          </span>
-          Hexview
-        </a>
-      </li>
-
-      <li>
-        <a href="?option=http_scan" class="nav-link" id="http_scan">
-          <span class="icon">
-            <svg t="1770771579159" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5129" width="48" height="48"><path d="M926.6 336.8c-22.7-53.6-55.1-101.7-96.4-143-41.3-41.3-89.4-73.8-143-96.4C631.7 73.9 572.7 62 512 62c-60.7 0-119.7 11.9-175.2 35.4-53.6 22.7-101.7 55.1-143 96.4-41.3 41.3-73.8 89.4-96.4 143C73.9 392.3 62 451.3 62 512c0 60.7 11.9 119.7 35.4 175.2 22.7 53.6 55.1 101.7 96.4 143 41.3 41.3 89.4 73.8 143 96.4C392.3 950.1 451.3 962 512 962c60.7 0 119.7-11.9 175.2-35.4 53.6-22.7 101.7-55.1 143-96.4 41.3-41.3 73.8-89.4 96.4-143C950.1 631.7 962 572.7 962 512c0-60.7-11.9-119.7-35.4-175.2z m-685.7-95.9C280.8 201 328 171 379.5 152c-2.9 3.1-5.8 6.3-8.7 9.5-33.9 38-61.4 82.1-81.7 130.9-33.7-3.6-62-7.5-83.6-10.9 10.9-14.2 22.7-27.8 35.4-40.6z m93.6 122.9c9.8 0.8 20 1.6 30.5 2.3 37.8 2.6 75.7 4.2 113.7 4.8v107.8H314.4c2.9-40.7 9.6-79.2 20.1-114.9zM167.8 343c21.1 3.7 55 9.1 99.4 14.2-10.3 38.2-16.9 78.8-19.6 121.5H130.1c4.1-47.7 16.9-93.6 37.7-135.7z m0.2 338.6c-20.9-42.3-33.8-88.4-37.9-136.2h116.6c2.1 40.8 10.1 81.5 24.1 121.7-46 5.1-81.1 10.6-102.8 14.5z m72.9 101.5c-12.6-12.6-24.3-26-35-40.2 23.5-3.6 54.7-7.9 92.3-11.8 19 37 43 73.3 71.7 108.1 11.9 14.4 24.3 28.3 37.2 41.7-62.1-17.6-119.2-50.9-166.2-97.8z m237.8 74.5c-17.7-16.5-38.1-37.5-58.4-62.2-18.8-23-35.3-46.6-49.4-70.5 35.9-2.4 71.8-3.9 107.7-4.5v137.2z m0-203.9c-37.9 0.6-75.9 2.2-113.7 4.8-8.8 0.6-17.3 1.2-25.6 1.9-14.9-38-23.6-76.6-25.9-115.1h165.2v108.4z m0-349.6c-35.9-0.6-71.9-2.1-107.7-4.5-3.9-0.3-7.8-0.5-11.6-0.8 15.8-33.2 35.6-63.5 59-90.3 21.1-24.2 42.4-42.2 60.3-55.1v150.7z m304.4-63.2c12.8 12.8 24.6 26.4 35.5 40.8-26 4-52.1 7.5-78.2 10.4-20.3-48.7-47.7-92.6-81.6-130.6-1.8-2.1-3.7-4.1-5.6-6.2 48 19.1 92.2 48 129.9 85.6z m-237.8-91.4c18.4 12.7 41 31.1 63.6 56.5 24.4 27.4 44.9 58.5 61.2 92.7-43.7 3.3-85.5 5-124.9 5.6V149.5z m0 221.4c18.3-0.3 36.6-0.7 54.7-1.4 31.7-1.2 63.3-3.2 94.9-5.9 10.6 35.8 17.3 74.3 20.2 115.1H545.3V370.9z m0 174.4h170.8c-2.3 38.5-11 77.1-26 115.2-30-2.5-60-4.3-90.1-5.5-18.2-0.7-36.5-1.2-54.7-1.4V545.3z m0 317.5V720.4c35.8 0.5 73.7 2 113.2 4.7-14 23.9-30.5 47.4-49.3 70.3-22.4 27.4-45 50.1-63.9 67.4z m237.8-79.7c-45 45-99.3 77.5-158.5 95.6 12.2-12.7 23.8-25.8 35-39.4 28.6-34.7 52.6-70.9 71.6-107.8 29.1 3.1 58.1 6.9 87 11.3-10.8 14.2-22.5 27.7-35.1 40.3zM856 681.4c-32.3-5.5-64.8-10.2-97.4-14 14-40.3 22.1-81.2 24.2-122.1h111c-4 47.8-16.9 93.8-37.8 136.1z m-74-202.7c-2.7-42.8-9.3-83.6-19.7-121.9 31.4-3.8 62.8-8.3 94-13.6 20.7 42.1 33.5 88 37.6 135.6H782z" p-id="5130" fill="#333333"></path></svg>
-          </span>
-          HTTP SCAN
-        </a>
-      </li>
+      <!-- No Results -->
+      <div class="sidebar-no-results" id="sidebarNoResults">
+        No matching tools found
+      </div>
     </ul>
+    </div>
 
     <ul class="sidebar-menu bottom">
       <li>
         <a href="https://github.com/delikely" target="_blank" class="nav-link">
           <span class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" aria-label="Settings" class="_ab6-" color="rgb(0, 0, 0)"
-              fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24">
-              <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2px"
-                x1="3" x2="21" y1="4" y2="4"></line>
-              <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2px"
-                x1="3" x2="21" y1="12" y2="12"></line>
-              <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2px"
-                x1="3" x2="21" y1="20" y2="20"></line>
+            <svg xmlns="http://www.w3.org/2000/svg" aria-label="Settings" class="_ab6-" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24">
+              <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2px" x1="3" x2="21" y1="4" y2="4"></line>
+              <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2px" x1="3" x2="21" y1="12" y2="12"></line>
+              <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2px" x1="3" x2="21" y1="20" y2="20"></line>
             </svg>
           </span>
           More
@@ -206,11 +241,9 @@
 
 </div>
 
-
 <script src="static/js/jquery.min.js"></script>
 <script src="static/js/tools.js"></script>
 <script src="static/js/index.js"></script>
-
 
 <!-- Google Analytics -->
 <script type="text/javascript">
@@ -235,4 +268,5 @@
   })();
 </script>
 
+</body>
 </html>

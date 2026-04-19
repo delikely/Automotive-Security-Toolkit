@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JumpX</title>
+    <link rel="stylesheet" href="static/css/jumpx.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <h2>JumpX</h2>
+                <!-- <span class="header-badge"></span> -->
+            </div>
+            <div class="toggle-container">
+                <span class="toggle-label active" id="labelCurrent">Current</span>
+                <div class="toggle-switch" id="toggleSwitch" onclick="toggleOpenMode()"></div>
+                <span class="toggle-label" id="labelNew">New Tab</span>
+            </div>
+        </div>
+        <div class="search-area">
+            <div class="search-wrapper">
+                <input type="text" id="urlInput" placeholder="Enter URL,Intent or Deeplink..." autocomplete="off">
+                <button onclick="handleGo()">GO</button>
+            </div>
+        </div>
+        <div class="section-title">Web (http://)</div>
+        <div class="grid">
+            <div class="card" onclick="jump('https://www.bing.com')">
+                <div class="icon">🌏</div>
+                <div class="info"><span class="name">Bing</span><span class="desc">Search Engine</span></div>
+            </div>
+            <div class="card" onclick="jump('https://github.com')">
+                <div class="icon">🐙</div>
+                <div class="info"><span class="name">GitHub</span><span class="desc">Development Platform</span></div>
+            </div>
+            <div class="card" onclick="jump('https://badssl.com/')">
+                <div class="icon">🛡️</div>
+                <div class="info"><span class="name">BadSSL</span><span class="desc">Certificate Testing</span></div>
+            </div>
+        </div>
+        <div class="section-title">Intent (intent://)</div>
+        <div class="grid">
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.SETTINGS;end')">
+                <div class="icon">📱</div>
+                <div class="info"><span class="name">Settings</span><span class="desc">System Home</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.APPLICATION_DEVELOPMENT_SETTINGS;end')">
+                <div class="icon">💻</div>
+                <div class="info"><span class="name">Developer</span><span class="desc">Advanced Options</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.WIFI_SETTINGS;end')">
+                <div class="icon">📶</div>
+                <div class="info"><span class="name">Wi-Fi</span><span class="desc">Network Configuration</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.BLUETOOTH_SETTINGS;end')">
+                <div class="icon">🔵</div>
+                <div class="info"><span class="name">Bluetooth</span><span class="desc">Device Pairing</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.LOCATION_SOURCE_SETTINGS;end')">
+                <div class="icon">📍</div>
+                <div class="info"><span class="name">Location</span><span class="desc">GPS Settings</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.AIRPLANE_MODE_SETTINGS;end')">
+                <div class="icon">✈️</div>
+                <div class="info"><span class="name">Airplane Mode</span><span class="desc">Flight Settings</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.MOBILE_DATA_SETTINGS;end')">
+                <div class="icon">📲</div>
+                <div class="info"><span class="name">Mobile Data</span><span class="desc">Cellular Settings</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.DEVICE_INFO_SETTINGS;end')">
+                <div class="icon">ℹ️</div>
+                <div class="info"><span class="name">Device Info</span><span class="desc">System Information</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.APPLICATION_SETTINGS;end')">
+                <div class="icon">📦</div>
+                <div class="info"><span class="name">Applications</span><span class="desc">App Manager</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.APP_NOTIFICATION_SETTINGS;end')">
+                <div class="icon">🔔</div>
+                <div class="info"><span class="name">Notifications</span><span class="desc">Alert Settings</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.INTERNAL_STORAGE_SETTINGS;end')">
+                <div class="icon">💾</div>
+                <div class="info"><span class="name">Storage</span><span class="desc">Internal Storage</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.ACCESSIBILITY_SETTINGS;end')">
+                <div class="icon">♿</div>
+                <div class="info"><span class="name">Accessibility</span><span class="desc">Assistive Features</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.settings.WEBVIEW_SETTINGS;end')">
+                <div class="icon">🌐</div>
+                <div class="info"><span class="name">WebView</span><span class="desc">WebView Implementation</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=Sharing%20this%20message;end')">
+                <div class="icon">✉️</div>
+                <div class="info"><span class="name">Share Text</span><span class="desc">Send Content</span></div>
+            </div>
+            <div class="card" onclick="jump('intent:#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=Sharing%20this%20message;component=com.android.bluetooth/.opp.BluetoothOppLauncherActivity;end')">
+                <div class="icon">📡</div>
+                <div class="info"><span class="name">Bluetooth Share</span><span class="desc">Send via Bluetooth</span></div>
+            </div>
+            <div class="card" onclick="jump('intent://123456#Intent;scheme=smsto;S.sms_body=Hello;end')">
+                <div class="icon">💬</div>
+                <div class="info"><span class="name">SMS to 123456</span><span class="desc">Send Message</span></div>
+            </div>  
+            <div class="card" onclick="jump('intent:#Intent;action=com.xiaopeng.devtools.view.log.GrabLogActivity;end')">
+                <div class="icon">📝</div>
+                <div class="info"><span class="name">Xpeng GrabLog</span><span class="desc">Debug Log Tool</span></div>
+            </div>
+        </div>
+        <div class="section-title">Deeplink (scheme://)</div>
+        <div class="grid">
+            <div class="card" onclick="jump('sms:123456?body=Hello')">
+                <div class="icon">💬</div>
+                <div class="info"><span class="name">SMS</span><span class="desc">Send Message</span></div>
+            </div>
+            <div class="card" onclick="jump('mailto:test@example.com?cc=cc@example.com&bcc=bcc@example.com')">
+                <div class="icon">📋</div>
+                <div class="info"><span class="name">Email</span><span class="desc">Send Email</span></div>
+            </div>
+            <div class="card" onclick="jump('tel:1234567890')">
+                <div class="icon">📞</div>
+                <div class="info"><span class="name">Call</span><span class="desc">Dial Number</span></div>
+            </div>
+            <div class="card" onclick="jump('geo:39.9042,116.4074')">
+                <div class="icon">📍</div>
+                <div class="info"><span class="name">Geo Location</span><span class="desc">Open Map Coordinates</span></div>
+            </div>
+            <div class="card" onclick="jump('geo:0,0?q=Beijing')">
+                <div class="icon">🗺️</div>
+                <div class="info"><span class="name">Geo Search</span><span class="desc">Search Location</span></div>
+            </div>
+            <div class="card" onclick="jump('market://details?id=com.android.chrome')">
+                <div class="icon">🛒</div>
+                <div class="info"><span class="name">Play Store</span><span class="desc">App Page</span></div>
+            </div>
+            <div class="card" onclick="jump('market://search?q=automotive')">
+                <div class="icon">🔍</div>
+                <div class="info"><span class="name">Play Search</span><span class="desc">Search Apps</span></div>
+            </div>
+            <div class="card" onclick="jump('settings://com.android.settings.slices')">
+                <div class="icon">🍕</div>
+                <div class="info"><span class="name">Slices Home</span><span class="desc">Interactive Snippets</span></div>
+            </div>
+            <div class="card" onclick="jump('settings://com.android.settings.slices?slice=content://com.android.settings.slices/action/wifi')">
+                <div class="icon">📶</div>
+                <div class="info"><span class="name">Wi-Fi Slice</span><span class="desc">Direct Slice Action</span></div>
+            </div>
+            <div class="card" onclick="jump('settings://com.android.settings.slices?slice=content://com.android.settings.slices/action/bluetooth')">
+                <div class="icon">🔵</div>
+                <div class="info"><span class="name">Bluetooth Slice</span><span class="desc">Direct Slice Action</span></div>
+            </div>
+            <div class="card" onclick="jump('settings://com.android.settings.slices?intent=android-app://com.android.settings/#Intent;S.slice=content://android.settings.slices/action/wifi;action=com.android.settings.action.VIEW_SLICE;end')">
+                <div class="icon">🔗</div>
+                <div class="info"><span class="name">Wi-Fi Intent Slice</span><span class="desc">Intent-based Slice</span></div>
+            </div>
+        </div>
+    </div>
+    <script src="static/js/jumpx.js"></script>
+</body>
+
+</html>
