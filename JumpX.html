@@ -9,6 +9,15 @@
 </head>
 
 <body>
+    <div class="url-preview-bar" id="urlPreviewBar" style="display: none;">
+        <div class="preview-bar-content">
+            <input type="text" id="urlPreviewInput" class="preview-url-input" placeholder="Edit URL...">
+            <span id="urlStatus" class="url-status"></span>
+            <button class="preview-go-btn" onclick="confirmUrl()">GO</button>
+            <button class="preview-close-btn" onclick="closePreview()">×</button>
+        </div>
+    </div>
+    <iframe id="previewFrame" class="preview-frame" style="display: none;"></iframe>
     <div class="container">
         <div class="header">
             <div class="header-left">
@@ -40,6 +49,10 @@
             <div class="card" onclick="jump('https://badssl.com/')">
                 <div class="icon">🛡️</div>
                 <div class="info"><span class="name">BadSSL</span><span class="desc">Certificate Testing</span></div>
+            </div>
+            <div class="card" onclick="jump('https://browserleaks.com')">
+                <div class="icon">🔍</div>
+                <div class="info"><span class="name">BrowserLeaks</span><span class="desc">Browser Privacy Test</span></div>
             </div>
         </div>
         <div class="section-title">Intent (intent://)</div>
@@ -162,6 +175,7 @@
         </div>
     </div>
     <script src="static/js/jumpx.js"></script>
+    <script>new VConsole();</script>
 </body>
 
 </html>

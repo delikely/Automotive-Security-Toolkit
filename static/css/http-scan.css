@@ -29,7 +29,7 @@ body {
 
 /* Container */
 .container {
-    height: 100%;
+    min-height: 100%;
     max-width: 61.8%;
     margin: 0 auto;
     padding: 24px 16px;
@@ -39,7 +39,7 @@ body {
 
 /* Card */
 .card {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     background: var(--card);
@@ -47,7 +47,7 @@ body {
     border-radius: 14px;
     padding: 22px;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
-    min-height: 0;
+    overflow: hidden;
 }
 
 h1 {
@@ -166,7 +166,8 @@ button:disabled {
 /* Log Area */
 .log {
     flex: 1;
-    min-height: 0;
+    min-height: 200px;
+    max-height: calc(100vh - 380px);
     margin-top: 18px;
     overflow: auto;
     background: #0b0f14;

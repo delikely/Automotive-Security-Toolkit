@@ -134,6 +134,121 @@ body {
     opacity: 0.8;
 }
 
+/* URL Preview Bar */
+.url-preview-bar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    background: var(--card-bg) !important;
+    border-bottom: 2px solid var(--primary) !important;
+    padding: 12px 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    display: none;
+}
+
+.preview-bar-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.preview-url-input {
+    flex: 1;
+    background: var(--bg-color);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: var(--text-main);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.preview-url-input:focus {
+    border-color: var(--primary);
+}
+
+/* URL Status Indicator */
+.url-status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.url-status.checking {
+    color: var(--text-dim);
+    background: var(--accent-bg);
+}
+
+.url-status.success {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.url-status.error {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.url-status.unknown {
+    color: #fd7e14;
+    background: rgba(253, 126, 20, 0.1);
+}
+
+.preview-go-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.preview-go-btn:hover {
+    opacity: 0.9;
+}
+
+.preview-close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-dim);
+    cursor: pointer;
+    padding: 0 8px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.preview-close-btn:hover {
+    color: var(--text-main);
+}
+
+/* Preview Frame */
+.preview-frame {
+    position: fixed !important;
+    top: 62px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 62px) !important;
+    border: none !important;
+    background: white !important;
+    z-index: 9998 !important;
+    display: none;
+}
+
 /* Section Title */
 .section-title {
     font-size: 13px;

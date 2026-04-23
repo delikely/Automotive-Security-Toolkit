@@ -15,6 +15,7 @@ const pageRoutes = {
     'hexview': 'hexview.html',
     'http_scan': 'http_scan.html',
     'JumpX': 'JumpX.html',
+    'file_reader': 'file_reader.html',
     'home': 'home.html'
 };
 

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Reader</title>
+    <link rel="shortcut icon" href="static/images/web.png" />
+    <link rel="stylesheet" href="static/css/file-analyzer.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="sidebar">
+        <!-- <h3>File Input</h3> -->
+
+        <input type="file" id="fileInput" multiple style="display:none">
+
+        <button class="file-btn" onclick="fileInput.click()">Select Files</button>
+
+        <div id="dropZone">
+            Drop files here
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="header">
+            File Reader
+        </div>
+
+        <div class="main">
+            <div id="info" class="info"></div>
+            <div id="preview" class="preview"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const fileInput = document.getElementById('fileInput');
+const info = document.getElementById('info');
+const preview = document.getElementById('preview');
+const dropZone = document.getElementById('dropZone');
+
+fileInput.addEventListener('change', handleFiles);
+
+dropZone.addEventListener('dragover', e => {
+    e.preventDefault();
+    dropZone.classList.add('dragover');
+});
+
+dropZone.addEventListener('dragleave', () => {
+    dropZone.classList.remove('dragover');
+});
+
+dropZone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    handleFiles({ target: { files: e.dataTransfer.files } });
+});
+
+function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+}
+
+function handleFiles(e) {
+    info.innerHTML = "";
+    preview.textContent = "";
+
+    [...e.target.files].forEach(file => {
+        const div = document.createElement('div');
+        div.className = "file-item";
+
+        div.innerHTML = `
+            <b>${file.name}</b><br>
+            <span>Size: ${formatSize(file.size)}</span><br>
+            <span>Type: ${file.type || 'unknown'}</span>
+        `;
+
+        info.appendChild(div);
+
+        const reader = new FileReader();
+
+        reader.onload = function (evt) {
+            let content;
+
+            if (typeof evt.target.result === "string") {
+                content = evt.target.result;
+            } else {
+                const bytes = new Uint8Array(evt.target.result);
+                content = [...bytes.slice(0, 20480)]
+                    .map(b => b.toString(16).padStart(2, '0'))
+                    .join(' ');
+            }
+
+            preview.textContent += `\n` + content + "\n";
+        };
+
+        const textExtensions = ['.txt', '.md', '.json', '.xml', '.html', '.css', '.js', '.csv', '.log', '.yml', '.yaml', '.ini', '.cfg'];
+        const isText = file.type.startsWith("text") ||
+                       textExtensions.some(ext => file.name.toLowerCase().endsWith(ext));
+
+        if (isText) {
+            reader.readAsText(file);
+        } else {
+            reader.readAsArrayBuffer(file);
+        }
+    });
+}
+</script>
+
+</body>
+</html>
